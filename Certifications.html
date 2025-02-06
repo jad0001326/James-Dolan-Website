@@ -22,58 +22,37 @@
     <section id="certifications" class="certifications-section">
         <h2>Certifications</h2>
         <div class="certifications-grid">
-            <!-- Existing Certifications -->
-            <div class="cert-card">
-                <img src="ccsk.png" alt="CCSK Logo" class="cert-logo">
-                <a href="https://cloudsecurityalliance.org/education/ccsk/" target="_blank" class="cert-link">
-                    Certificate of Cloud Security Knowledge (CCSK)
-                </a>
+            <!-- Certification 1 -->
+            <div class="cert-card" onclick="openModal('ccsk-modal')">
+                <img src="ccsk-logo.png" alt="CCSK Logo" class="cert-logo">
+                <p>Certificate of Cloud Security Knowledge (CCSK)</p>
             </div>
-            <div class="cert-card">
-                <img src="CISMP.jpeg" alt="CISMP Logo" class="cert-logo">
-                <a href="https://www.bcs.org/get-qualified/certifications-for-professionals/foundation-certificate-in-information-security-management-principles/" target="_blank" class="cert-link">
-                    BCS Foundation Certificate in Information Security Management Principles (CISMP)
-                </a>
-            </div>
-            <div class="cert-card">
-                <img src="PCSAE.png" alt="PCSAE Logo" class="cert-logo">
-                <a href="https://www.paloaltonetworks.com/services/education/certification/pcsae" target="_blank" class="cert-link">
-                    Palo Alto Networks Certified Security Automation Engineer (PCSAE)
-                </a>
-            </div>
-            <div class="cert-card">
-                <img src="SSCP.png" alt="SSCP Logo" class="cert-logo">
-                <a href="https://www.isc2.org/Certifications/SSCP" target="_blank" class="cert-link">
-                    Systems Security Certified Practitioner (SSCP)
-                </a>
-            </div>
-            <div class="cert-card">
-                <img src="ISO27001.jpeg" alt="ISO 27001 Logo" class="cert-logo">
-                <a href="https://www.iso.org/isoiec-27001-information-security.html" target="_blank" class="cert-link">
-                    ISO 27001 Certified
-                </a>
-            </div>
-            <div class="cert-card">
-                <img src="Ce-CSP.png" alt="Ce-CSP Logo" class="cert-logo">
-                <a href="https://ce-csp.com/" target="_blank" class="cert-link">
-                    Ce-CSP Certified
-                </a>
+            <div id="ccsk-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('ccsk-modal')">&times;</span>
+                    <h3>Certificate of Cloud Security Knowledge (CCSK)</h3>
+                    <p>This certification validates expertise in cloud security, including best practices and knowledge of CSA guidance.</p>
+                    <a href="https://cloudsecurityalliance.org/education/ccsk/" target="_blank">Learn more</a>
+                </div>
             </div>
     
-            <!-- New Certifications: Working Towards -->
-            <div class="cert-card working-towards">
-                <img src="CISSP.png" alt="CISSP Logo" class="cert-logo">
-                <a href="https://www.isc2.org/Certifications/CISSP" target="_blank" class="cert-link">
-                    Working Towards: Certified Information Systems Security Professional (CISSP)
-                </a>
+            <!-- Certification 2 -->
+            <div class="cert-card" onclick="openModal('cismp-modal')">
+                <img src="cismp-logo.png" alt="CISMP Logo" class="cert-logo">
+                <p>BCS Foundation Certificate in Information Security Management Principles (CISMP)</p>
             </div>
-            <div class="cert-card working-towards">
-                <img src="PCAP.png" alt="PCAP Logo" class="cert-logo">
-                <a href="https://pythoninstitute.org/certification/pcap-certification-associate-python-programmer" target="_blank" class="cert-link">
-                    Working Towards: Python Institute Certified Associate in Python Programming (PCAP)
-                </a>
+            <div id="cismp-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('cismp-modal')">&times;</span>
+                    <h3>BCS Foundation Certificate in Information Security Management Principles (CISMP)</h3>
+                    <p>This certification provides foundational knowledge in information security management principles.</p>
+                    <a href="https://www.bcs.org/get-qualified/certifications-for-professionals/foundation-certificate-in-information-security-management-principles/" target="_blank">Learn more</a>
+                </div>
             </div>
+    
+            <!-- Add more certifications here following the same structure -->
         </div>
     </section>
+    <script src="scripts.js"></script>
 </body>
 </html>
