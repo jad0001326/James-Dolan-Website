@@ -415,3 +415,49 @@ body {
 .edu-link:hover {
     background: #0056b3;
 }
+
+nav button.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* ===== SKILLS PROGRESS BARS ===== */
+.skills-progress-section {
+    padding: 40px 20px;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.skills-progress-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.progress-container {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    text-align: left;
+}
+
+.progress-container p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.progress {
+    background: #007BFF;
+    height: 100%;
+    width: 0%;
+    transition: width 1.5s ease-in-out;
+}
