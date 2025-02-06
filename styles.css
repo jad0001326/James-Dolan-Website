@@ -144,3 +144,79 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+a {
+    color: #007BFF; /* Blue link colour */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* ===== CERTIFICATIONS SECTION ===== */
+.certifications-section {
+    padding: 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.certifications-section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Grid Layout for Certification Cards */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Individual Certification Card */
+.cert-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Certification Logo */
+.cert-logo {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Certification Link */
+.cert-link {
+    color: #007BFF;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cert-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.cert-logo {
+    width: 120px; /* Set a consistent width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Add spacing below the logo */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
