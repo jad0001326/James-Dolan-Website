@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Dolan's CV</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>James Dolan - Home</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
 </head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <button onclick="location.href='index.html'">Home</button>
+        <button onclick="location.href='experience.html'">Experience</button>
+        <button onclick="location.href='education.html'">Education</button>
+        <button onclick="location.href='certifications.html'">Certifications</button>
+        <button onclick="location.href='skills.html'">Skills</button>
+        <button onclick="location.href='projects.html'">Projects</button>
+    </nav>
 
-<nav>
-    <button onclick="location.href='index.html'">Home</button>
-    <button onclick="location.href='experience.html'">Experience</button>
-    <button onclick="location.href='education.html'">Education</button>
-    <button onclick="location.href='certifications.html'">Certifications</button>
-    <button onclick="location.href='skills.html'">Skills</button>
-    <button onclick="location.href='projects.html'">Projects</button>
-  </nav>
-
-<body class="bg-gray-100 text-gray-900">
-    <header class="bg-white shadow p-6">
-        <div class="container mx-auto flex items-center justify-between">
-            <div>
-                <h1 class="text-4xl font-bold">James Dolan</h1>
-                <p class="text-lg text-gray-600">DevSecOps Playbook Engineer</p>
-            </div>
-            <div>
-                <p>Email: <a href="mailto:dolan_777@hotmail.com" class="text-blue-500">dolan_777@hotmail.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/james-dolan-3686a869" class="text-blue-500">James Dolan</a></p>
-            </div>
+    <!-- About Section -->
+    <header class="about-section">
+        <img src="profile.jpg" alt="James Dolan" class="profile-photo">
+        <div class="about-content">
+            <h1>James Dolan</h1>
+            <p>DevSecOps Engineer | Cybersecurity Specialist | Cloud Security Enthusiast</p>
+            <p>
+                Hi, I’m James! I’m passionate about creating secure and efficient solutions for organisations. With expertise in cybersecurity, cloud automation, and DevSecOps practices, I enjoy building playbooks and working on cutting-edge security tools.
+            </p>
+            <button onclick="location.href='contact.html'" class="btn">Get in Touch</button>
         </div>
     </header>
 
-    <main class="container mx-auto mt-6 p-6 bg-white shadow rounded">
-        <section id="about-me" class="mb-8">
-            <h2 class="text-3xl font-bold mb-4">Profile</h2>
-            <p>James Dolan is a DevSecOps Playbook Engineer with over 1.5 years of experience at BT, specializing in creating and maintaining cyber security products and services. He has a strong background in cyber security, bolstered by six professional certifications and ongoing education in Cyber Security at Edinburgh Napier University. Passionate about learning new technologies, James aims to enhance BT's cyber security posture and mission.</p>
-        </section>
-
-    <footer class="bg-gray-800 text-white p-4 mt-8">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 James Dolan. All rights reserved.</p>
-            <div class="flex justify-center space-x-4">
-                <a href="https://linkedin.com" class="text-blue-400">LinkedIn</a>
-                <a href="https://github.com" class="text-gray-400">GitHub</a>
-            </div>
+    <!-- Skills Overview Section -->
+    <section class="skills-overview">
+        <h2>Core Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">Cybersecurity</div>
+            <div class="skill-card">DevSecOps</div>
+            <div class="skill-card">Cloud Security</div>
+            <div class="skill-card">Automation</div>
+            <div class="skill-card">Python</div>
+            <div class="skill-card">Incident Response</div>
         </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 James Dolan. All rights reserved.</p>
     </footer>
 </body>
-
 </html>
