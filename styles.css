@@ -461,3 +461,37 @@ nav button.active {
     width: 0%;
     transition: width 1.5s ease-in-out;
 }
+
+/* ===== DARK MODE STYLES ===== */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode nav {
+    background-color: #222;
+}
+
+body.dark-mode .progress-bar {
+    background: #333;
+    border-color: #555;
+}
+
+body.dark-mode .progress {
+    background: #007BFF;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
