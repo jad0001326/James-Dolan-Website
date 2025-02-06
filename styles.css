@@ -347,3 +347,71 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* ===== EDUCATION SECTION ===== */
+.education-section {
+    padding: 40px 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.education-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.education-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px; /* Add space below the logo */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+.education-card h3 {
+    font-size: 20px;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.education-card .school {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.education-card .school span {
+    font-weight: bold;
+}
+
+.edu-link {
+    display: inline-block;
+    background: #007BFF;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.edu-link:hover {
+    background: #0056b3;
+}
