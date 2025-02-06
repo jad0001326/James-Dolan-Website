@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - James Dolan</title>
+    <title>Skills - James Dolan</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
@@ -18,23 +18,104 @@
         <button onclick="location.href='projects.html'">Projects</button>
     </nav>
 
-    <section id="skills" class="mb-8">
-        <h2 class="text-3xl font-bold mb-4">Skills</h2>
-        <div class="grid grid-cols-2 gap-4">
-            <div>Cyber Security</div>
-            <div>Network Security</div>
-            <div>Information Security</div>
-            <div>Risk Management</div>
-            <div>Ethical Hacking</div>
-            <div>Programming (Python, Java, JavaScript, SQL, FQL)</div>
-            <div>Stakeholder Management</div>
-            <div>Critical Thinking</div>
-            <div>Problem-Solving</div>
-            <div>Communication</div>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card" onclick="openModal('cybersecurity-modal')">Cyber Security</div>
+            <div class="skill-card" onclick="openModal('network-modal')">Network Security</div>
+            <div class="skill-card" onclick="openModal('info-security-modal')">Information Security</div>
+            <div class="skill-card" onclick="openModal('risk-management-modal')">Risk Management</div>
+            <div class="skill-card" onclick="openModal('ethical-hacking-modal')">Ethical Hacking</div>
+            <div class="skill-card" onclick="openModal('programming-modal')">Programming</div>
+            <div class="skill-card" onclick="openModal('stakeholder-modal')">Stakeholder Management</div>
+            <div class="skill-card" onclick="openModal('critical-thinking-modal')">Critical Thinking</div>
+            <div class="skill-card" onclick="openModal('problem-solving-modal')">Problem-Solving</div>
+            <div class="skill-card" onclick="openModal('communication-modal')">Communication</div>
         </div>
     </section>
 
+    <!-- Modals for Skill Descriptions -->
+    <div id="cybersecurity-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cybersecurity-modal')">&times;</span>
+            <h3>Cyber Security</h3>
+            <p>Cyber Security involves protecting systems, networks, and programs from digital attacks. It is crucial for businesses to prevent unauthorized access and data breaches.</p>
+        </div>
+    </div>
 
+    <div id="network-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('network-modal')">&times;</span>
+            <h3>Network Security</h3>
+            <p>Network Security ensures the integrity, confidentiality, and availability of data within a network. Firewalls, encryption, and intrusion detection systems help protect networks.</p>
+        </div>
+    </div>
+
+    <div id="info-security-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('info-security-modal')">&times;</span>
+            <h3>Information Security</h3>
+            <p>Information Security (InfoSec) refers to the protection of sensitive business and personal data. It includes strategies like encryption, compliance, and risk assessments.</p>
+        </div>
+    </div>
+
+    <div id="risk-management-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('risk-management-modal')">&times;</span>
+            <h3>Risk Management</h3>
+            <p>Risk Management is the process of identifying, assessing, and mitigating security threats to prevent potential damage to an organization.</p>
+        </div>
+    </div>
+
+    <div id="ethical-hacking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ethical-hacking-modal')">&times;</span>
+            <h3>Ethical Hacking</h3>
+            <p>Ethical Hacking involves using penetration testing techniques to identify and fix security vulnerabilities before malicious hackers exploit them.</p>
+        </div>
+    </div>
+
+    <div id="programming-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('programming-modal')">&times;</span>
+            <h3>Programming</h3>
+            <p>Programming skills in Python, Java, JavaScript, SQL, and FQL allow for automating tasks, developing applications, and securing systems.</p>
+        </div>
+    </div>
+
+    <div id="stakeholder-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('stakeholder-modal')">&times;</span>
+            <h3>Stakeholder Management</h3>
+            <p>Stakeholder Management ensures effective communication between security teams and business units to align security measures with business goals.</p>
+        </div>
+    </div>
+
+    <div id="critical-thinking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('critical-thinking-modal')">&times;</span>
+            <h3>Critical Thinking</h3>
+            <p>Critical Thinking allows security professionals to analyze threats, anticipate cyber risks, and create strategic security plans.</p>
+        </div>
+    </div>
+
+    <div id="problem-solving-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('problem-solving-modal')">&times;</span>
+            <h3>Problem-Solving</h3>
+            <p>Problem-Solving is crucial in security to identify vulnerabilities, troubleshoot incidents, and develop security solutions.</p>
+        </div>
+    </div>
+
+    <div id="communication-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('communication-modal')">&times;</span>
+            <h3>Communication</h3>
+            <p>Effective Communication is essential for security teams to report threats, educate users, and ensure compliance with security policies.</p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
-
