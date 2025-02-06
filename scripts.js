@@ -17,3 +17,5 @@ window.onclick = function(event) {
         }
     });
 };
+
+
