@@ -103,11 +103,10 @@ footer a:hover {
     text-decoration: underline;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: url('background.png') no-repeat center center fixed;
+header {
+    background: url('background.png') no-repeat center center;
     background-size: cover;
-    color: #333;
-    margin: 0;
-    padding: 0;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
 }
