@@ -34,7 +34,7 @@ document.addEventListener('scroll', () => {
 document.querySelectorAll('nav button').forEach(button => {
     button.addEventListener('click', (event) => {
         const target = event.target.getAttribute('onclick').split("'")[1].replace('.html', '');
-        document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
@@ -47,11 +47,4 @@ window.addEventListener('load', () => {
             bar.style.width = proficiencyLevels[index] + '%';
         }, 500); // Add delay to make the animation smoother
     });
-});
-
-const themeToggle = document.getElementById('theme-toggle');
-
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Toggle Light Mode' : 'Toggle Dark Mode';
 });
