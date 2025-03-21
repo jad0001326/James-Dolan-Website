@@ -18,23 +18,32 @@ window.onclick = function(event) {
     });
 };
 
+let scrollTimeout;
 document.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav button');
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav button');
 
-    sections.forEach((section, index) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 50 && rect.bottom >= 50) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            navLinks[index].classList.add('active');
-        }
-    });
+        sections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 50 && rect.bottom >= 50) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[index].classList.add('active');
+            }
+        });
+    }, 100);
 });
 
 document.querySelectorAll('nav button').forEach(button => {
     button.addEventListener('click', (event) => {
         const target = event.target.getAttribute('onclick').split("'")[1].replace('.html', '');
-        document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
+        const targetSection = document.getElementById(target);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            console.warn(`Section with ID '${target}' not found.`);
+        }
     });
 });
 

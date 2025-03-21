@@ -307,24 +307,6 @@ nav button.active {
     transition: width 1.5s ease-in-out;
 }
 
-/* ===== DARK MODE STYLES ===== */
-body.dark-mode {
-    background-color: #121212;
-    color: white;
-}
-
-body.dark-mode nav {
-    background-color: #222;
-}
-
-body.dark-mode .progress-bar {
-    background: #333;
-    border-color: #555;
-}
-
-body.dark-mode .progress {
-    background: #007BFF;
-}
 
 .btn {
     background-color: #007BFF;
@@ -382,4 +364,18 @@ body.dark-mode .progress {
     color: #333;
     font-size: 15px;
     line-height: 1.6;
+}
+
+.experience-card ul li,
+.cert-card p {
+    font-size: 15px;
+    color: #444;
+}
+
+.experience-card h3:hover {
+    color: #0056b3;
+}
+
+.experience-card {
+    cursor: default;
 }
