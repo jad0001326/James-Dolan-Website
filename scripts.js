@@ -1,13 +1,3 @@
-// Open modal
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
-}
-
-// Close modal
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
-}
-
 // Close modal when clicking outside the modal content
 window.onclick = function(event) {
     const modals = document.querySelectorAll(".modal");
@@ -46,16 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Experience Section Modal Handling
     document.querySelectorAll(".experience-card").forEach(card => {
-        card.addEventListener("click", function() {
+        card.addEventListener("click", function () {
             const modalId = this.getAttribute("data-modal");
             if (modalId) {
-                document.getElementById(modalId).style.display = "block";
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = "block";
+                }
             }
         });
     });
 
     document.querySelectorAll(".modal .close").forEach(closeBtn => {
-        closeBtn.addEventListener("click", function() {
+        closeBtn.addEventListener("click", function () {
             this.closest(".modal").style.display = "none";
         });
     });
