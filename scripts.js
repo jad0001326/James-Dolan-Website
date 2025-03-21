@@ -43,6 +43,30 @@ document.addEventListener("DOMContentLoaded", () => {
             contactModal.style.display = "none";
         }
     });
+
+    // Experience Section Modal Handling
+    document.querySelectorAll(".experience-card").forEach(card => {
+        card.addEventListener("click", function() {
+            const modalId = this.getAttribute("data-modal");
+            if (modalId) {
+                document.getElementById(modalId).style.display = "block";
+            }
+        });
+    });
+
+    document.querySelectorAll(".modal .close").forEach(closeBtn => {
+        closeBtn.addEventListener("click", function() {
+            this.closest(".modal").style.display = "none";
+        });
+    });
+
+    window.addEventListener("click", (event) => {
+        document.querySelectorAll(".modal").forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
 });
 
 let scrollTimeout;
