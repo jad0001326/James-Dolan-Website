@@ -20,7 +20,11 @@ window.onclick = function(event) {
 
 // Contact Form Modal Handling
 document.addEventListener("DOMContentLoaded", () => {
-    emailjs.init("d5p16jvVsbmTRVJyk"); // Initialize EmailJS with your Public Key
+    if (typeof emailjs !== "undefined") {
+        emailjs.init("d5p16jvVsbmTRVJyk"); // Initialize EmailJS
+    } else {
+        console.error("EmailJS failed to load.");
+    }
 
     const contactBtn = document.getElementById("contact-btn");
     const contactModal = document.getElementById("contact-modal");
@@ -86,14 +90,19 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     event.preventDefault(); // Prevent default form submission
     console.log("Send button clicked! Form is submitting..."); // Debugging log
 
-    emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
-        .then(response => {
-            alert("Message sent successfully!");
-            document.getElementById("contact-form").reset();
-            contactModal.style.display = "none"; // Close modal on success
-        })
-        .catch(error => {
-            console.error("EmailJS Error:", error);
-            alert("Failed to send message. Please try again later.");
-        });
+    if (typeof emailjs !== "undefined") {
+        emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
+            .then(response => {
+                alert("Message sent successfully!");
+                document.getElementById("contact-form").reset();
+                contactModal.style.display = "none"; // Close modal on success
+            })
+            .catch(error => {
+                console.error("EmailJS Error:", error);
+                alert("Failed to send message. Please try again later.");
+            });
+    } else {
+        console.error("EmailJS is not loaded. Unable to send message.");
+        alert("There was an issue sending your message. Please try again later.");
+    }
 });
