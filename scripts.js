@@ -19,22 +19,24 @@ window.onclick = function(event) {
 };
 
 // Contact Form Modal Handling
-const contactBtn = document.getElementById("contact-btn");
-const contactModal = document.getElementById("contact-modal");
-const closeModalBtn = contactModal.querySelector(".close");
+document.addEventListener("DOMContentLoaded", () => {
+    const contactBtn = document.getElementById("contact-btn");
+    const contactModal = document.getElementById("contact-modal");
+    const closeModalBtn = contactModal.querySelector(".close");
 
-contactBtn.addEventListener("click", () => {
-    contactModal.style.display = "block";
-});
+    contactBtn.addEventListener("click", () => {
+        contactModal.style.display = "block";
+    });
 
-closeModalBtn.addEventListener("click", () => {
-    contactModal.style.display = "none";
-});
-
-window.addEventListener("click", (event) => {
-    if (event.target === contactModal) {
+    closeModalBtn.addEventListener("click", () => {
         contactModal.style.display = "none";
-    }
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === contactModal) {
+            contactModal.style.display = "none";
+        }
+    });
 });
 
 let scrollTimeout;
