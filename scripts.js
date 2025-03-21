@@ -88,10 +88,15 @@ window.addEventListener('load', () => {
     const progressBars = document.querySelectorAll('.progress');
     const proficiencyLevels = [90, 60, 75, 60, 75]; // Cybersecurity, DevSecOps, Cloud Security, Python, Stakeholder Management
 
+    if (progressBars.length !== proficiencyLevels.length) {
+        console.warn("Mismatch between progress bars and proficiency levels");
+    }
+
     progressBars.forEach((bar, index) => {
+        bar.style.width = '0%'; // Reset width before animation
         setTimeout(() => {
             bar.style.width = proficiencyLevels[index] + '%';
-        }, 500); // Add delay to make the animation smoother
+        }, 100);
     });
 });
 
