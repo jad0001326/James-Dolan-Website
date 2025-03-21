@@ -86,7 +86,7 @@ document.querySelectorAll('nav button').forEach(button => {
 
 window.addEventListener('load', () => {
     const progressBars = document.querySelectorAll('.progress');
-    const proficiencyLevels = [90, 80, 85, 75]; // Add proficiency levels for each skill
+    const proficiencyLevels = [90, 60, 75, 60, 75]; // Cybersecurity, DevSecOps, Cloud Security, Python, Stakeholder Management
 
     progressBars.forEach((bar, index) => {
         setTimeout(() => {
