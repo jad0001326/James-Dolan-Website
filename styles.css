@@ -223,165 +223,6 @@ p {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== SKILLS SECTION ===== */
-.skills-section {
-    padding: 40px 20px;
-    text-align: center;
-    background: #f9f9f9;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.skill-card {
-    background: #007BFF;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* ===== FOOTER ===== */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-}
-
-/* ===== GENERAL STYLES ===== */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-/* ===== HEADER STYLING ===== */
-.about-section {
-    background-color: #222;
-    color: white;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: 3px solid #007BFF;
-    transition: transform 0.3s ease;
-}
-
-.profile-photo:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
-}
-
-.about-content h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    color: #007BFF;
-}
-
-.about-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.btn {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-/* ===== SKILLS SECTION ===== */
-.skills-overview {
-    padding: 40px 20px;
-    background: #f9f9f9;
-    text-align: center;
-}
-
-.skills-overview h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.skill-card {
-    background-color: #007BFF;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* ===== EDUCATION SECTION ===== */
-.education-section {
-    padding: 40px 20px;
-    background: #f9f9f9;
-    text-align: center;
-}
-
-.education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.education-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    max-width: 350px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.education-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
 .education-logo {
     width: 120px;
     height: auto;
@@ -498,4 +339,47 @@ body.dark-mode .progress {
 
 .btn:hover {
     background-color: #0056b3;
+}
+
+/* ===== EXPERIENCE SECTION ===== */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.experience-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.experience-card h3 {
+    color: #007BFF;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.experience-card p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.experience-card ul {
+    padding-left: 20px;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.6;
 }
