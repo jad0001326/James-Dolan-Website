@@ -1,13 +1,3 @@
-// Close modal when clicking outside the modal content
-window.onclick = function(event) {
-    const modals = document.querySelectorAll(".modal");
-    modals.forEach(modal => {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    });
-};
-
 // Contact Form Modal Handling
 document.addEventListener("DOMContentLoaded", () => {
     if (typeof emailjs !== "undefined") {
@@ -34,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Experience Section Modal Handling
-    document.querySelectorAll(".experience-card").forEach(card => {
+    // Unified Modal Handling for Certification and Experience Cards
+    document.querySelectorAll(".modal-trigger").forEach(card => {
         card.addEventListener("click", function () {
             const modalId = this.getAttribute("data-modal");
             if (modalId) {
