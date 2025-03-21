@@ -379,3 +379,24 @@ nav button.active {
 .experience-card {
     cursor: default;
 }
+
+/* ===== PROFILE PHOTO STYLING ===== */
+.profile-photo {
+    width: 150px; /* Ensures consistent size */
+    height: 150px; /* Maintains aspect ratio */
+    border-radius: 50%; /* Keeps circular shape */
+    object-fit: cover; /* Ensures the full image is shown inside the circle */
+    border: 3px solid #007BFF; /* Optional: Adds a border */
+    display: block;
+    margin: 0 auto;
+}
+
+/* ===== ABOUT LIGHT CONTAINER ===== */
+.about-light .container {
+    overflow: visible; /* Ensures image is fully shown */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
