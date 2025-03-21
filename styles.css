@@ -1,4 +1,4 @@
-/* ===== GENERAL STYLES ===== */
+/ * ===== GENERAL STYLES ===== */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -364,10 +364,15 @@ nav button.active {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    text-align: left;
+    text-align: center; /* Center all content */
     width: 100%;
     max-width: 350px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card h3,
+.experience-card p {
+    text-align: center; /* Ensure role and details are centered */
 }
 
 .experience-card:hover {
