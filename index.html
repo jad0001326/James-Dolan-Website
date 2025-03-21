@@ -28,7 +28,7 @@
                 <p>
                     Hi, I’m James! <br>I’m passionate about creating secure and efficient solutions for organisations. With expertise in cybersecurity, cloud automation, and DevSecOps practices, I enjoy building playbooks and working on cutting-edge security tools.
                 </p>
-                <a href="mailto:dolan_777@hotmail.com?subject=Get%20in%20Touch&body=Hi%20James," class="btn">Let's Connect</a>
+                <button class="btn" id="contact-btn">Let's Connect</button>
             </div>
         </div>
     </header>
@@ -56,6 +56,26 @@
         </div>
         <a href="projects.html" class="btn" style="margin-top: 20px; display: inline-block;">See All Projects</a>
     </section>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>

@@ -18,6 +18,25 @@ window.onclick = function(event) {
     });
 };
 
+// Contact Form Modal Handling
+const contactBtn = document.getElementById("contact-btn");
+const contactModal = document.getElementById("contact-modal");
+const closeModalBtn = contactModal.querySelector(".close");
+
+contactBtn.addEventListener("click", () => {
+    contactModal.style.display = "block";
+});
+
+closeModalBtn.addEventListener("click", () => {
+    contactModal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === contactModal) {
+        contactModal.style.display = "none";
+    }
+});
+
 let scrollTimeout;
 document.addEventListener('scroll', () => {
     clearTimeout(scrollTimeout);
@@ -56,4 +75,20 @@ window.addEventListener('load', () => {
             bar.style.width = proficiencyLevels[index] + '%';
         }, 500); // Add delay to make the animation smoother
     });
+});
+
+// EmailJS Integration for Contact Form
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
+        .then(response => {
+            alert("Message sent successfully!");
+            document.getElementById("contact-form").reset();
+            contactModal.style.display = "none"; // Close modal on success
+        })
+        .catch(error => {
+            console.error("EmailJS Error:", error);
+            alert("Failed to send message. Please try again later.");
+        });
 });
