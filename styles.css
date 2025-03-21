@@ -204,7 +204,6 @@ p {
 .modal-content ul {
     list-style: none; /* Completely remove bullet points */
     padding-left: 0; /* Remove default padding */
-    text-align: left;
     line-height: 1.7; /* Maintain spacing */
 }
 
@@ -369,6 +368,7 @@ nav button.active {
     width: 100%;
     max-width: 350px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
 }
 
 .experience-card h3,
@@ -400,18 +400,13 @@ nav button.active {
     line-height: 1.6;
 }
 
-.experience-card ul li,
-.cert-card p {
+.experience-card ul li {
     font-size: 15px;
     color: #444;
 }
 
 .experience-card h3:hover {
     color: #0056b3;
-}
-
-.experience-card {
-    cursor: default;
 }
 
 /* ===== PROFILE PHOTO STYLING ===== */
@@ -487,11 +482,22 @@ nav button.active {
 }
 
 .modal-content h2,
-.modal-content p,
-.modal-content ul {
+.modal-content p {
     text-align: center;
 }
 
-.modal-content ul li::before {
-    content: ""; /* Remove any default bullet marker */
+.modal-content ul li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 15px;
+        width: 95%;
+    }
+
+    nav button {
+        font-size: 14px;
+        padding: 10px;
+    }
 }
