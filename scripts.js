@@ -8,21 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const contactBtn = document.getElementById("contact-btn");
     const contactModal = document.getElementById("contact-modal");
-    const closeModalBtn = contactModal.querySelector(".close");
 
-    contactBtn.addEventListener("click", () => {
-        contactModal.style.display = "block";
-    });
+    if (contactBtn && contactModal) {
+        const closeModalBtn = contactModal.querySelector(".close");
 
-    closeModalBtn.addEventListener("click", () => {
-        contactModal.style.display = "none";
-    });
+        contactBtn.addEventListener("click", () => {
+            contactModal.style.display = "block";
+        });
 
-    window.addEventListener("click", (event) => {
-        if (event.target === contactModal) {
+        closeModalBtn.addEventListener("click", () => {
             contactModal.style.display = "none";
-        }
-    });
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === contactModal) {
+                contactModal.style.display = "none";
+            }
+        });
+    }
 
     // Unified Modal Handling for Certification and Experience Cards
     document.querySelectorAll(".modal-trigger").forEach(card => {
