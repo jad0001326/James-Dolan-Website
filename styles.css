@@ -202,9 +202,10 @@ p {
 }
 
 .modal-content ul {
+    list-style: none; /* Completely remove bullet points */
+    padding-left: 0; /* Remove default padding */
     text-align: left;
-    padding: 0 20px;
-    line-height: 1.7; /* More readable spacing */
+    line-height: 1.7; /* Maintain spacing */
 }
 
 .modal-content ul li {
@@ -489,4 +490,8 @@ nav button.active {
 .modal-content p,
 .modal-content ul {
     text-align: center;
+}
+
+.modal-content ul li::before {
+    content: ""; /* Remove any default bullet marker */
 }
