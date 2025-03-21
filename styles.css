@@ -443,3 +443,11 @@ nav button.active {
     width: 100%; /* Makes button full width */
     padding: 12px;
 }
+
+/* ===== EXPERIENCE CARD IMAGE STYLING ===== */
+.experience-card img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100px; /* Adjust size as needed */
+    height: auto;
+}
