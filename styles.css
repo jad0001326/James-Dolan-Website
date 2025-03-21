@@ -400,3 +400,46 @@ nav button.active {
     justify-content: center;
     text-align: center;
 }
+
+/* ===== CONTACT FORM STYLING ===== */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between fields */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Center form in modal */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding does not affect width */
+}
+
+#contact-form textarea {
+    height: 120px; /* Makes the message box larger */
+    resize: vertical;
+}
+
+#contact-form button {
+    margin-top: 10px;
+    align-self: center;
+    width: 100%; /* Makes button full width */
+    padding: 12px;
+}
