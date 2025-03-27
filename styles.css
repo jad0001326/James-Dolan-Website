@@ -1,4 +1,4 @@
- /* ===== GENERAL STYLES ===== */
+/* ===== GENERAL STYLES ===== */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -512,4 +512,52 @@ nav button.active {
         font-size: 14px;
         padding: 10px;
     }
+}
+
+.panels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.panel {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px 20px;
+    width: 300px;
+    max-width: 90%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.panel h3 {
+    color: #007BFF;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.panel p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.panel-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.panel-link:hover {
+    text-decoration: underline;
 }
