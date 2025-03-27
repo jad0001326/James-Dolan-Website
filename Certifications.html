@@ -135,6 +135,16 @@
             </div>
         </div>
     </section>
+    <script>
+        // Example of closing modal
+        const closeModal = (modal) => {
+            modal.classList.add("modal-hide");
+            setTimeout(() => {
+                modal.style.display = "none";
+                modal.classList.remove("modal-hide");
+            }, 300);
+        };
+    </script>
     <script src="scripts.js"></script>
 </body>
 </html>
