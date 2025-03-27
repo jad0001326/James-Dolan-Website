@@ -15,8 +15,9 @@ body {
 .panel,
 .project-card,
 .hero-content {
-    opacity: 1 !important;
-    transform: none !important;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 /* ===== HEADER STYLING ===== */
