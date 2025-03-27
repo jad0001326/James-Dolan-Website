@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const closeModalBtn = contactModal.querySelector(".close");
-
     closeModalBtn.addEventListener("click", () => {
         contactModal.style.display = "none";
     });
@@ -62,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Scroll-triggered fade-in effect
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Highlight nav button based on scroll position
 let scrollTimeout;
 document.addEventListener('scroll', () => {
     clearTimeout(scrollTimeout);
@@ -92,6 +93,7 @@ document.addEventListener('scroll', () => {
     }, 100);
 });
 
+// Smooth scroll for nav buttons
 document.querySelectorAll('nav button').forEach(button => {
     button.addEventListener('click', (event) => {
         const target = event.target.getAttribute('onclick').split("'")[1].replace('.html', '');
@@ -104,6 +106,7 @@ document.querySelectorAll('nav button').forEach(button => {
     });
 });
 
+// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
         e.preventDefault();
@@ -114,6 +117,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Progress bar animation
 window.addEventListener('load', () => {
     const progressBars = document.querySelectorAll('.progress');
     const proficiencyLevels = [90, 60, 75, 60, 75]; // Cybersecurity, DevSecOps, Cloud Security, Python, Stakeholder Management
@@ -140,7 +144,8 @@ document.getElementById("contact-form").addEventListener("submit", function(even
             .then(response => {
                 alert("Message sent successfully!");
                 document.getElementById("contact-form").reset();
-                contactModal.style.display = "none"; // Close modal on success
+                const modal = document.getElementById("contact-modal");
+                if (modal) modal.style.display = "none"; // Close modal on success
             })
             .catch(error => {
                 console.error("EmailJS Error:", error);
