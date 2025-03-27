@@ -1,3 +1,62 @@
+/***** ===== GENERAL STYLES ===== *****/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.panel:not(.fade-in),
+.project-card:not(.fade-in),
+.hero-content:not(.fade-in) {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+h2 {
+    font-size: 28px;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: #007BFF;
+    text-align: center;
+}
+
+h3 {
+    font-size: 22px;
+    color: #333;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .panel-icon {
     font-size: 36px;
     color: #007BFF;
