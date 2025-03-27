@@ -1,4 +1,4 @@
-/* ===== GENERAL STYLES ===== */
+/***** ===== GENERAL STYLES ===== *****/
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -137,14 +137,15 @@ a:hover {
 
 .modal-content {
     background: white;
-    margin: 10% auto;
-    padding: 25px;
-    border-radius: 12px;
+    margin: 5% auto;
+    padding: 30px 40px;
+    border-radius: 16px;
     width: 90%;
     max-width: 600px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    text-align: center;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    text-align: left;
     position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .close {
