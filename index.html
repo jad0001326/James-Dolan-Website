@@ -95,21 +95,5 @@
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="scripts.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('fade-in');
-              observer.unobserve(entry.target); // Only trigger once
-            }
-          });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.panel, .project-card, .hero-content').forEach(el => {
-          observer.observe(el);
-        });
-      });
-    </script>
 </body>
 </html>

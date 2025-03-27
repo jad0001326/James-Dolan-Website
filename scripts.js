@@ -17,19 +17,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const closeModalBtn = contactModal.querySelector(".close");
     closeModalBtn.addEventListener("click", () => {
-        contactModal.style.display = "none";
+        contactModal.classList.add("modal-hide");
+        setTimeout(() => {
+            contactModal.style.display = "none";
+            contactModal.classList.remove("modal-hide");
+        }, 300);
     });
 
     window.addEventListener("click", (event) => {
         if (event.target === contactModal) {
-            contactModal.style.display = "none";
+            contactModal.classList.add("modal-hide");
+            setTimeout(() => {
+                contactModal.style.display = "none";
+                contactModal.classList.remove("modal-hide");
+            }, 300);
         }
     });
 
     document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
             document.querySelectorAll(".modal").forEach(modal => {
-                modal.style.display = "none";
+                modal.classList.add("modal-hide");
+                setTimeout(() => {
+                    modal.style.display = "none";
+                    modal.classList.remove("modal-hide");
+                }, 300);
             });
         }
     });
@@ -49,14 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".modal .close").forEach(closeBtn => {
         closeBtn.addEventListener("click", function () {
-            this.closest(".modal").style.display = "none";
+            this.closest(".modal").classList.add("modal-hide");
+            setTimeout(() => {
+                this.closest(".modal").style.display = "none";
+                this.closest(".modal").classList.remove("modal-hide");
+            }, 300);
         });
     });
 
     window.addEventListener("click", (event) => {
         document.querySelectorAll(".modal").forEach(modal => {
             if (event.target === modal) {
-                modal.style.display = "none";
+                modal.classList.add("modal-hide");
+                setTimeout(() => {
+                    modal.style.display = "none";
+                    modal.classList.remove("modal-hide");
+                }, 300);
             }
         });
     });
@@ -145,7 +165,13 @@ document.getElementById("contact-form").addEventListener("submit", function(even
                 alert("Message sent successfully!");
                 document.getElementById("contact-form").reset();
                 const modal = document.getElementById("contact-modal");
-                if (modal) modal.style.display = "none"; // Close modal on success
+                if (modal) {
+                    modal.classList.add("modal-hide");
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                        modal.classList.remove("modal-hide");
+                    }, 300); // Close modal on success
+                }
             })
             .catch(error => {
                 console.error("EmailJS Error:", error);
