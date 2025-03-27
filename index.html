@@ -7,95 +7,90 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav>
-        <button onclick="location.href='index.html'">Home</button>
-        <button onclick="location.href='experience.html'">Experience</button>
-        <button onclick="location.href='education.html'">Education</button>
-        <button onclick="location.href='certifications.html'">Certifications</button>
-        <button onclick="location.href='skills.html'">Skills</button>
-        <button onclick="location.href='projects.html'">Projects</button>
-    </nav>
-
-    <!-- About Section -->
-    <header class="about-light">
-        <div class="container">
-            <img src="images/profile.jpeg" alt="James Dolan" class="profile-photo">
-            <div class="about-content">
-                <h1>James Dolan</h1>
-                <br><p>Playbook Engineer | Cybersecurity | Cloud Security </p>
-                <p>
-                    Hi, I’m James!  
-                    I am a <strong>Playbook Engineer</strong> and <strong>Cybersecurity Professional</strong> with a strong background in <strong>DevSecOps, cloud security, and automation</strong>. My expertise lies in <strong>designing and optimising security workflows, building automation solutions, and enhancing incident response capabilities</strong>.  
-                    <br><br>
-                    With hands-on experience in <strong>SOAR (Security Orchestration, Automation, and Response), SIEM, and EDR systems</strong>, I specialise in <strong>developing security playbooks</strong> that reduce manual effort, streamline operations, and improve response effectiveness. I have a deep understanding of threat detection, incident handling, and network security, ensuring that organisations can <strong>proactively defend against cyber threats</strong>.  
-                    <br><br>
-                    Currently, at <strong>BT</strong>, I focus on integrating <strong>security automation tools</strong> and improving operational efficiency through cutting-edge <strong>DevSecOps</strong> practices. Previously, I gained extensive training through <strong>CAPSLOCK’s cybersecurity boot camp</strong>, where I honed my skills in <strong>incident response, security tooling, and best practices in threat detection</strong>.  
-                    <br><br>
-                    Passionate about <strong>continuous learning and innovation</strong>, I enjoy <strong>solving complex security challenges</strong> and staying ahead in the ever-evolving cybersecurity landscape. Whether it’s <strong>developing automation scripts, analysing security risks, or collaborating with cross-functional teams</strong>, I strive to create <strong>robust and scalable security solutions</strong>.  
-                    <br><br>
-                    Let’s connect and discuss how I can help <strong>enhance security operations through automation and innovation</strong>! 🚀  
-                </p>
-                <button class="btn" id="contact-btn">Let's Connect</button>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>James Dolan</h1>
+        <h2>Playbook Engineer & Cybersecurity Specialist</h2>
+        <p>Automating security operations with DevSecOps precision.</p>
+        <div class="hero-buttons">
+          <a href="projects.html" class="btn">Explore Projects</a>
+          <a href="certifications.html" class="btn-outline">Download CV</a>
         </div>
-    </header>
-
-    <!-- Skills Overview Section -->
-    <section class="skills-overview">
-        <h2>Core Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card">Cybersecurity</div>
-            <div class="skill-card">DevSecOps</div>
-            <div class="skill-card">Cloud Security</div>
-            <div class="skill-card">Automation</div>
-            <div class="skill-card">Python</div>
-            <div class="skill-card">Incident Response</div>
-        </div>
-        <a href="Skills.html" class="btn" style="margin-top: 20px; display: inline-block;">See All Skills</a>
+      </div>
     </section>
 
-    <!-- Project Preview Section -->
-    <section class="projects-preview">
-        <h2>Featured Projects</h2>
-        <div class="skills-grid">
-            <div class="skill-card">XSOAR Playbook Optimisation</div>
-            <div class="skill-card">Automated Incident Response</div>
-            <div class="skill-card">Cloud Threat Detection Pipeline</div>
-        </div>
-        <a href="projects.html" class="btn" style="margin-top: 20px; display: inline-block;">See All Projects</a>
+    <!-- Overview Panels -->
+    <section class="panels">
+      <div class="panel">
+        <h3>Experience</h3>
+        <p>From BT to hands-on bootcamps, driving security efficiency.</p>
+        <a href="experience.html" class="panel-link">View Experience</a>
+      </div>
+      <div class="panel">
+        <h3>Certifications</h3>
+        <p>Industry-recognised credentials in cloud, automation & security.</p>
+        <a href="certifications.html" class="panel-link">View Certifications</a>
+      </div>
+      <div class="panel">
+        <h3>Skills</h3>
+        <p>Python, SOAR, EDR, Cloud Security, and beyond.</p>
+        <a href="skills.html" class="panel-link">Explore Skills</a>
+      </div>
     </section>
 
-    <!-- Contact Form Modal -->
+    <!-- Featured Projects -->
+    <section class="featured-projects">
+      <h2>Featured Projects</h2>
+      <div class="project-cards">
+        <div class="project-card">
+          <h4>XSOAR Playbook Optimisation</h4>
+          <p>Boosting orchestration efficiency and response speed.</p>
+        </div>
+        <div class="project-card">
+          <h4>Automated Incident Response</h4>
+          <p>Reducing triage time via automated enrichment and workflows.</p>
+        </div>
+        <div class="project-card">
+          <h4>Cloud Threat Detection Pipeline</h4>
+          <p>Proactive cloud monitoring using event-driven pipelines.</p>
+        </div>
+      </div>
+      <a href="projects.html" class="btn">View All Projects</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-banner">
+      <h2>Let’s Connect</h2>
+      <p>Interested in working together or chatting automation?</p>
+      <a href="#contact-modal" class="btn">Get In Touch</a>
+    </section>
+
+    <!-- Modal and Footer remain unchanged -->
     <div id="contact-modal" class="modal" role="dialog" aria-labelledby="contact-title">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="contact-title">Contact Me</h2>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="contact-title">Contact Me</h2>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>© 2025 James Dolan. All rights reserved.</p>
+      <p>© 2025 James Dolan. All rights reserved.</p>
     </footer>
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>

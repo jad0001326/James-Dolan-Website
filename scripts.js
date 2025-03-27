@@ -6,26 +6,34 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("EmailJS failed to load.");
     }
 
-    const contactBtn = document.getElementById("contact-btn");
     const contactModal = document.getElementById("contact-modal");
-
-    if (contactBtn && contactModal) {
-        const closeModalBtn = contactModal.querySelector(".close");
-
-        contactBtn.addEventListener("click", () => {
+    const contactLinks = document.querySelectorAll('a[href="#contact-modal"]');
+    contactLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
             contactModal.style.display = "block";
         });
+    });
 
-        closeModalBtn.addEventListener("click", () => {
+    const closeModalBtn = contactModal.querySelector(".close");
+
+    closeModalBtn.addEventListener("click", () => {
+        contactModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === contactModal) {
             contactModal.style.display = "none";
-        });
+        }
+    });
 
-        window.addEventListener("click", (event) => {
-            if (event.target === contactModal) {
-                contactModal.style.display = "none";
-            }
-        });
-    }
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            document.querySelectorAll(".modal").forEach(modal => {
+                modal.style.display = "none";
+            });
+        }
+    });
 
     // Unified Modal Handling for Certification and Experience Cards
     document.querySelectorAll(".modal-trigger").forEach(card => {
@@ -52,6 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 modal.style.display = "none";
             }
         });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.panel, .project-card, .hero-content').forEach(el => {
+        observer.observe(el);
     });
 });
 
@@ -80,6 +100,16 @@ document.querySelectorAll('nav button').forEach(button => {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         } else {
             console.warn(`Section with ID '${target}' not found.`);
+        }
+    });
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
         }
     });
 });

@@ -6,6 +6,18 @@ body {
     margin: 0;
     padding: 0;
 }
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.panel,
+.project-card,
+.hero-content {
+    opacity: 0;
+    transform: translateY(30px);
+}
 
 /* ===== HEADER STYLING ===== */
 header {
