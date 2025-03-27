@@ -8,8 +8,8 @@ body {
 }
 
 .fade-in {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
@@ -18,12 +18,6 @@ body {
 .hero-content:not(.fade-in) {
     opacity: 0;
     transform: translateY(30px);
-}
-
-.fade-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 h2 {
@@ -72,4 +66,44 @@ a:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@media (max-width: 768px) {
+    .panel {
+        margin-bottom: 20px;
+    }
+}
+
+.hero-content {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 28px;
+    color: #007BFF;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.hero-buttons .btn,
+.hero-buttons .btn-outline {
+    margin: 0 10px;
 }
