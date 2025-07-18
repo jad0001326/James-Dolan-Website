@@ -101,7 +101,7 @@ document.addEventListener('scroll', () => {
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
         const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav button');
+        const navLinks = document.querySelectorAll('nav a');
 
         sections.forEach((section, index) => {
             const rect = section.getBoundingClientRect();
@@ -114,6 +114,19 @@ document.addEventListener('scroll', () => {
 });
 
 // Smooth scroll for nav buttons
+
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            event.preventDefault();
+            const targetSection = document.querySelector(href);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                console.warn(`Section with selector '${href}' not found.`);
+            }
+
 document.querySelectorAll('nav button').forEach(button => {
     button.addEventListener('click', (event) => {
         const targetAttr = event.target.getAttribute('onclick');
@@ -126,6 +139,7 @@ document.querySelectorAll('nav button').forEach(button => {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         } else {
             console.warn(`Section with ID '${target}' not found.`);
+
         }
     });
 });
