@@ -12,11 +12,11 @@
     <!-- Navigation Bar -->
     <nav>
         <button onclick="location.href='index.html'">Home</button>
-        <button onclick="location.href='experience.html'">Experience</button>
-        <button onclick="location.href='education.html'">Education</button>
-        <button onclick="location.href='certifications.html'">Certifications</button>
-        <button onclick="location.href='skills.html'">Skills</button>
-        <button onclick="location.href='projects.html'">Projects</button>
+        <button onclick="location.href='Experience.html'">Experience</button>
+        <button onclick="location.href='Education.html'">Education</button>
+        <button onclick="location.href='Certifications.html'">Certifications</button>
+        <button onclick="location.href='Skills.html'">Skills</button>
+        <button onclick="location.href='Projects.html'">Projects</button>
     </nav>
     <h1>Education</h1>
 
@@ -61,50 +61,7 @@
         <p>© 2025 James Dolan. All rights reserved.</p>
     </footer>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".modal-trigger").forEach(trigger => {
-        const modalId = trigger.getAttribute("data-modal");
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          trigger.addEventListener("click", () => {
-            modal.style.display = "block";
-          });
-
-          const closeBtn = modal.querySelector(".close");
-          if (closeBtn) {
-            closeBtn.addEventListener("click", () => {
-              modal.classList.add("modal-hide");
-              setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-              }, 300);
-            });
-          }
-
-          window.addEventListener("click", (e) => {
-            if (e.target === modal) {
-              modal.classList.add("modal-hide");
-              setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-              }, 300);
-            }
-          });
-
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-              modal.classList.add("modal-hide");
-              setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-              }, 300);
-            }
-          });
-        }
-      });
-    });
-    </script>
+    <script src="scripts.js"></script>
 
 </body>
 </html>

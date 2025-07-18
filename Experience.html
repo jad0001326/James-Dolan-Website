@@ -6,18 +6,17 @@
     <meta name="description" content="Professional experience and roles of James Dolan.">
     <title>Experience - James Dolan</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <nav>
         <button onclick="location.href='index.html'">Home</button>
-        <button onclick="location.href='experience.html'">Experience</button>
-        <button onclick="location.href='education.html'">Education</button>
-        <button onclick="location.href='certifications.html'">Certifications</button>
-        <button onclick="location.href='skills.html'">Skills</button>
-        <button onclick="location.href='projects.html'">Projects</button>
+        <button onclick="location.href='Experience.html'">Experience</button>
+        <button onclick="location.href='Education.html'">Education</button>
+        <button onclick="location.href='Certifications.html'">Certifications</button>
+        <button onclick="location.href='Skills.html'">Skills</button>
+        <button onclick="location.href='Projects.html'">Projects</button>
     </nav>
     <h1>Experience</h1>
 
@@ -26,13 +25,13 @@
         <h2>Experience</h2>
         <div class="experience-grid">
             <div class="experience-card modal-trigger" data-modal="modal-playbook">
-                <img src="images/bt_logo.png" alt="BT Logo" class="company-logo">
+                <img src="Images/bt_logo.png" alt="BT Logo" class="company-logo">
                 <h3>Playbook Engineer</h3>
                 <p><strong>BT | July 2022 - Present</strong></p>
             </div>
 
             <div class="experience-card modal-trigger" data-modal="modal-trainee">
-                <img src="images/capslock.jpeg" alt="BT Logo" class="company-logo">
+                <img src="Images/capslock.jpeg" alt="BT Logo" class="company-logo">
                 <h3>Cyber Security Trainee</h3>
                 <p><strong>BT | March 2022 - July 2022 (5 months)</strong></p>
             </div>
@@ -70,50 +69,8 @@
         </div>
     </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".modal-trigger").forEach(card => {
-        const modalId = card.getAttribute("data-modal");
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          card.addEventListener("click", () => {
-            modal.style.display = "block";
-          });
 
-          const closeBtn = modal.querySelector(".close");
-          if (closeBtn) {
-            closeBtn.addEventListener("click", () => {
-              modal.classList.add("modal-hide");
-              setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-              }, 300);
-            });
-          }
-
-          window.addEventListener("click", (event) => {
-            if (event.target === modal) {
-              modal.classList.add("modal-hide");
-              setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-              }, 300);
-            }
-          });
-
-          document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape") {
-              modal.classList.add("modal-hide");
-              setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-              }, 300);
-            }
-          });
-        }
-      });
-    });
-    </script>
+    <script src="scripts.js"></script>
 
 </body>
 </html>
