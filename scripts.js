@@ -61,10 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".modal .close").forEach(closeBtn => {
         closeBtn.addEventListener("click", function () {
-            this.closest(".modal").classList.add("modal-hide");
+            const modal = this.closest(".modal");
+            modal.classList.add("modal-hide");
             setTimeout(() => {
-                this.closest(".modal").style.display = "none";
-                this.closest(".modal").classList.remove("modal-hide");
+                modal.style.display = "none";
+                modal.classList.remove("modal-hide");
             }, 300);
         });
     });
@@ -95,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Highlight nav button based on scroll position
+// Highlight nav link based on scroll position
 let scrollTimeout;
 document.addEventListener('scroll', () => {
     clearTimeout(scrollTimeout);
@@ -113,8 +114,7 @@ document.addEventListener('scroll', () => {
     }, 100);
 });
 
-// Smooth scroll for nav buttons
-
+// Smooth scroll for nav links
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (event) => {
         const href = link.getAttribute('href');
@@ -126,20 +126,21 @@ document.querySelectorAll('nav a').forEach(link => {
             } else {
                 console.warn(`Section with selector '${href}' not found.`);
             }
+        }
+    });
+});
 
+// Smooth scroll for nav buttons
 document.querySelectorAll('nav button').forEach(button => {
     button.addEventListener('click', (event) => {
-        const targetAttr = event.target.getAttribute('onclick');
-        const target = targetAttr
-            .split("'")[1]
-            .replace('.html', '')
-            .toLowerCase();
-        const targetSection = document.getElementById(target);
+        const onclick = button.getAttribute('onclick');          // e.g. "location.href='Experience.html'"
+        const targetHtml = onclick.split("'")[1];                // e.g. "Experience.html"
+        const sectionId = targetHtml.replace('.html', '').toLowerCase(); // e.g. "experience"
+        const targetSection = document.getElementById(sectionId);
         if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         } else {
-            console.warn(`Section with ID '${target}' not found.`);
-
+            console.warn(`Section with ID '${sectionId}' not found.`);
         }
     });
 });
@@ -180,14 +181,14 @@ document.getElementById("contact-form").addEventListener("submit", function(even
         emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
             .then(response => {
                 alert("Message sent successfully!");
-                document.getElementById("contact-form").reset();
+                this.reset();
                 const modal = document.getElementById("contact-modal");
                 if (modal) {
                     modal.classList.add("modal-hide");
                     setTimeout(() => {
                         modal.style.display = "none";
                         modal.classList.remove("modal-hide");
-                    }, 300); // Close modal on success
+                    }, 300);
                 }
             })
             .catch(error => {

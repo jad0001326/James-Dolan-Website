@@ -5,6 +5,7 @@ body {
     color: #222;
     margin: 0;
     padding: 0;
+}
 
 nav {
     display: flex;
@@ -33,6 +34,21 @@ nav button:hover,
 nav button.active {
     background: #007BFF;
     color: #fff;
+}
+
+nav a {
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    color: #007BFF;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav a:hover,
+nav a.active {
+    border-bottom: 2px solid #007BFF;
 }
 
 .btn {
@@ -376,21 +392,3 @@ a:hover {
         transform: scale(0.95);
     }
 }
-
-nav {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-nav a {
-    background: none;
-    border: none;
-    padding: 10px;
-}
-
-nav a.active {
-    border-bottom: 2px solid #007BFF;
-}
-}
-
