@@ -1,19 +1,31 @@
 import os, openai, glob
 
-# Collect all code files in the repo
+# Only process text‑based extensions
+TEXT_EXTS = {'.html', '.css', '.js', '.py', '.md', '.txt'}
+
 files = {}
 for path in glob.glob("**/*.*", recursive=True):
-    if path.startswith(".github/"): continue
-    with open(path, encoding="utf-8") as f:
-        files[path] = f.read()
+    # Skip GitHub Actions workflow itself
+    if path.startswith(".github/"): 
+        continue
 
-# Build prompt for Codex
-system = "You are a helpful assistant that updates website code to ensure it’s mobile-responsive."
-# For demo, just send index.html content—adjust as needed
-user = f"Here is index.html:\n\n{files.get('index.html','')}\n\n"
-user += "Please add a viewport meta tag inside the <head> if missing."
+    ext = os.path.splitext(path)[1].lower()
+    if ext not in TEXT_EXTS:
+        # skip images, fonts, binaries, etc.
+        continue
 
-# Call OpenAI
+    try:
+        with open(path, encoding="utf-8") as f:
+            files[path] = f.read()
+    except UnicodeDecodeError:
+        print(f"⚠️ Skipping non‑UTF8 file: {path}")
+        continue
+
+# Now build your prompt using `files`
+system = "You are a helpful assistant that updates website code to ensure it’s mobile‑responsive."
+user = f"Here are my files:\n\n" + "\n\n".join(f"--- {p}\n{c}" for p, c in files.items()) + \
+       "\n\nPlease add a viewport meta tag and ensure images scale responsively."
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 resp = openai.ChatCompletion.create(
     model="gpt-4o-code",
@@ -22,11 +34,13 @@ resp = openai.ChatCompletion.create(
         {"role":"user",   "content": user}
     ],
     temperature=0.2,
-    max_tokens=500
+    max_tokens=2000
 )
 
-# Simple parser: expect entire new index.html back
-new_content = resp.choices[0].message.content
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(new_content)
-print("Updated index.html")
+# Parse and write back files as before…
+for chunk in resp.choices[0].message.content.split('--- filename: ')[1:]:
+    header, _, body = chunk.partition('\n')
+    path = header.strip()
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(body)
+    print(f"✅ Updated {path}")
