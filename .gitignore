@@ -1,0 +1,36 @@
+# Ignore credentials file
+config.js
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.sublime-workspace
+*.sublime-project
+*.iml
+
+# Logs and temp files
+*.log
+*.tmp
+*.cache
+tmp/
+
+# Node modules
+node_modules/

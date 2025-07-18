@@ -114,6 +114,7 @@ document.addEventListener('scroll', () => {
 });
 
 // Smooth scroll for nav buttons
+
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (event) => {
         const href = link.getAttribute('href');
@@ -125,6 +126,20 @@ document.querySelectorAll('nav a').forEach(link => {
             } else {
                 console.warn(`Section with selector '${href}' not found.`);
             }
+
+document.querySelectorAll('nav button').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const targetAttr = event.target.getAttribute('onclick');
+        const target = targetAttr
+            .split("'")[1]
+            .replace('.html', '')
+            .toLowerCase();
+        const targetSection = document.getElementById(target);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            console.warn(`Section with ID '${target}' not found.`);
+
         }
     });
 });
@@ -160,7 +175,6 @@ window.addEventListener('load', () => {
 // EmailJS Integration for Contact Form
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
-    console.log("Send button clicked! Form is submitting..."); // Debugging log
 
     if (typeof emailjs !== "undefined") {
         emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
