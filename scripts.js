@@ -157,7 +157,6 @@ window.addEventListener('load', () => {
 // EmailJS Integration for Contact Form
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
-    console.log("Send button clicked! Form is submitting..."); // Debugging log
 
     if (typeof emailjs !== "undefined") {
         emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
