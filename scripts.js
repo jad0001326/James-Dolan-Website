@@ -1,7 +1,7 @@
 // Contact Form Modal Handling
 document.addEventListener("DOMContentLoaded", () => {
     if (typeof emailjs !== "undefined") {
-        emailjs.init("d5p16jvVsbmTRVJyk"); // Initialize EmailJS
+        emailjs.init(window.EMAILJS_PUBLIC_KEY); // Initialize EmailJS
     } else {
         console.error("EmailJS failed to load.");
     }
@@ -160,7 +160,7 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     console.log("Send button clicked! Form is submitting..."); // Debugging log
 
     if (typeof emailjs !== "undefined") {
-        emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
+        emailjs.sendForm(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, this, window.EMAILJS_PUBLIC_KEY)
             .then(response => {
                 alert("Message sent successfully!");
                 document.getElementById("contact-form").reset();
