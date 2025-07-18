@@ -116,7 +116,11 @@ document.addEventListener('scroll', () => {
 // Smooth scroll for nav buttons
 document.querySelectorAll('nav button').forEach(button => {
     button.addEventListener('click', (event) => {
-        const target = event.target.getAttribute('onclick').split("'")[1].replace('.html', '');
+        const targetAttr = event.target.getAttribute('onclick');
+        const target = targetAttr
+            .split("'")[1]
+            .replace('.html', '')
+            .toLowerCase();
         const targetSection = document.getElementById(target);
         if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
