@@ -116,7 +116,11 @@ document.addEventListener('scroll', () => {
 // Smooth scroll for nav buttons
 document.querySelectorAll('nav button').forEach(button => {
     button.addEventListener('click', (event) => {
-        const target = event.target.getAttribute('onclick').split("'")[1].replace('.html', '');
+        const targetAttr = event.target.getAttribute('onclick');
+        const target = targetAttr
+            .split("'")[1]
+            .replace('.html', '')
+            .toLowerCase();
         const targetSection = document.getElementById(target);
         if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
@@ -157,7 +161,6 @@ window.addEventListener('load', () => {
 // EmailJS Integration for Contact Form
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
-    console.log("Send button clicked! Form is submitting..."); // Debugging log
 
     if (typeof emailjs !== "undefined") {
         emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
