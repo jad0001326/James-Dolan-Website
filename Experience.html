@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience - James Dolan</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
 </head>
 <body>
 
@@ -68,50 +67,8 @@
         </div>
     </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".modal-trigger").forEach(card => {
-        const modalId = card.getAttribute("data-modal");
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          card.addEventListener("click", () => {
-            modal.style.display = "block";
-          });
 
-          const closeBtn = modal.querySelector(".close");
-          if (closeBtn) {
-            closeBtn.addEventListener("click", () => {
-              modal.classList.add("modal-hide");
-              setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-              }, 300);
-            });
-          }
-
-          window.addEventListener("click", (event) => {
-            if (event.target === modal) {
-              modal.classList.add("modal-hide");
-              setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-              }, 300);
-            }
-          });
-
-          document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape") {
-              modal.classList.add("modal-hide");
-              setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-              }, 300);
-            }
-          });
-        }
-      });
-    });
-    </script>
+    <script src="scripts.js"></script>
 
 </body>
 </html>
