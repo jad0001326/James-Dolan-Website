@@ -121,7 +121,7 @@ document.querySelectorAll('nav button').forEach(button => {
         if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         } else {
-            console.warn(`Section with ID '${target}' not found.`);
+            // console.warn(`Section with ID '${target}' not found.`);
         }
     });
 });
@@ -143,7 +143,7 @@ window.addEventListener('load', () => {
     const proficiencyLevels = [90, 60, 75, 60, 75]; // Cybersecurity, DevSecOps, Cloud Security, Python, Stakeholder Management
 
     if (progressBars.length !== proficiencyLevels.length) {
-        console.warn("Mismatch between progress bars and proficiency levels");
+        // console.warn("Mismatch between progress bars and proficiency levels");
     }
 
     progressBars.forEach((bar, index) => {
@@ -157,7 +157,7 @@ window.addEventListener('load', () => {
 // EmailJS Integration for Contact Form
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
-    console.log("Send button clicked! Form is submitting..."); // Debugging log
+    // console.log("Send button clicked! Form is submitting..."); // Debugging log
 
     if (typeof emailjs !== "undefined") {
         emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
