@@ -61,10 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".modal .close").forEach(closeBtn => {
         closeBtn.addEventListener("click", function () {
-            this.closest(".modal").classList.add("modal-hide");
+            const modal = this.closest(".modal");
+            modal.classList.add("modal-hide");
             setTimeout(() => {
-                this.closest(".modal").style.display = "none";
-                this.closest(".modal").classList.remove("modal-hide");
+                modal.style.display = "none";
+                modal.classList.remove("modal-hide");
             }, 300);
         });
     });
@@ -129,6 +130,21 @@ document.querySelectorAll('nav a').forEach(link => {
     });
 });
 
+// Smooth scroll for nav buttons
+document.querySelectorAll('nav button').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const onclick = button.getAttribute('onclick');          // e.g. "location.href='Experience.html'"
+        const targetHtml = onclick.split("'")[1];                // e.g. "Experience.html"
+        const sectionId = targetHtml.replace('.html', '').toLowerCase(); // e.g. "experience"
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            console.warn(`Section with ID '${sectionId}' not found.`);
+        }
+    });
+});
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
@@ -160,20 +176,19 @@ window.addEventListener('load', () => {
 // EmailJS Integration for Contact Form
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
-    console.log("Send button clicked! Form is submitting..."); // Debugging log
 
     if (typeof emailjs !== "undefined") {
         emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
             .then(response => {
                 alert("Message sent successfully!");
-                document.getElementById("contact-form").reset();
+                this.reset();
                 const modal = document.getElementById("contact-modal");
                 if (modal) {
                     modal.classList.add("modal-hide");
                     setTimeout(() => {
                         modal.style.display = "none";
                         modal.classList.remove("modal-hide");
-                    }, 300); // Close modal on success
+                    }, 300);
                 }
             })
             .catch(error => {

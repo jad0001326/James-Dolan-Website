@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - James Dolan</title>
+    <title>Projects - James Dolan</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects undertaken by James Dolan.">
+  <title>Projects - James Dolan</title>
+  <link rel="stylesheet" href="styles.css">
+
 </head>
+
 <body>
 
     <!-- Navigation Bar -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="Experience.html">Experience</a>
-        <a href="Education.html">Education</a>
-        <a href="Certifications.html">Certifications</a>
-        <a href="Skills.html">Skills</a>
-        <a href="Projects.html">Projects</a>
+
+
+        <button onclick="location.href='index.html'">Home</button>
+        <button onclick="location.href='Experience.html'">Experience</button>
+        <button onclick="location.href='Education.html'">Education</button>
+        <button onclick="location.href='Certifications.html'">Certifications</button>
+        <button onclick="location.href='Skills.html'">Skills</button>
+        <button onclick="location.href='Projects.html'">Projects</button>
+
     </nav>
+    <h1>Projects</h1>
 
     <section id="projects" class="mb-8">
         <h2 class="text-3xl font-bold mb-4">Projects</h2>
         <div class="space-y-4">
             <div class="project-card modal-trigger" data-modal="project1-modal">
-                <h3 class="text-xl font-bold">[Project Title]</h3>
-                <p>Brief description of the project, your role, and the technologies used.</p>
+                <h3 class="text-xl font-bold">Security Automation Platform</h3>
+                <p>Developed a Python-based platform that orchestrates incident response tasks across multiple security tools.</p>
             </div>
         </div>
     </section>
@@ -32,43 +45,12 @@
     <div id="project1-modal" class="modal" tabindex="-1">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h3>[Project Title]</h3>
-            <p>Full description of the project goes here.</p>
+            <h3>Security Automation Platform</h3>
+            <p>The platform uses Flask APIs and Dockerized workers to automate triage, integrate with SIEM alerts, and trigger response playbooks, reducing manual effort for analysts.</p>
         </div>
     </div>
 
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".modal-trigger").forEach(trigger => {
-        const modalId = trigger.getAttribute("data-modal");
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            trigger.addEventListener("click", () => {
-                modal.style.display = "block";
-            });
-
-            const closeBtn = modal.querySelector(".close");
-            if (closeBtn) {
-                closeBtn.addEventListener("click", () => {
-                    modal.style.display = "none";
-                });
-            }
-
-            window.addEventListener("click", (e) => {
-                if (e.target === modal) {
-                    modal.style.display = "none";
-                }
-            });
-
-            document.addEventListener("keydown", (e) => {
-                if (e.key === "Escape") {
-                    modal.style.display = "none";
-                }
-            });
-        }
-    });
-});
-</script>
+    <script src="scripts.js"></script>
 
 </body>
 </html>
