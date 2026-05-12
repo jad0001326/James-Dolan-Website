@@ -1,202 +1,67 @@
-// Contact Form Modal Handling
 document.addEventListener("DOMContentLoaded", () => {
-    if (typeof emailjs !== "undefined") {
-        emailjs.init("d5p16jvVsbmTRVJyk"); // Initialize EmailJS
-    } else {
-        console.error("EmailJS failed to load.");
-    }
-
-    const contactModal = document.getElementById("contact-modal");
-    const contactLinks = document.querySelectorAll('a[href="#contact-modal"]');
-    contactLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            contactModal.style.display = "block";
-        });
+  const nav = document.querySelector("nav");
+  if (nav && !document.querySelector(".theme-toggle")) {
+    const toggle = document.createElement("button");
+    toggle.className = "theme-toggle";
+    const setLabel = () => toggle.textContent = document.body.classList.contains("light-mode") ? "Dark" : "Light";
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+      setLabel();
     });
+    nav.appendChild(toggle);
+    if (localStorage.getItem("theme") === "light") document.body.classList.add("light-mode");
+    setLabel();
+  }
 
-    const closeModalBtn = contactModal.querySelector(".close");
-    closeModalBtn.addEventListener("click", () => {
-        contactModal.classList.add("modal-hide");
-        setTimeout(() => {
-            contactModal.style.display = "none";
-            contactModal.classList.remove("modal-hide");
-        }, 300);
+  const openModal = (modal) => { if (modal) modal.style.display = "block"; };
+  const closeModal = (modal) => { if (modal) modal.style.display = "none"; };
+
+  document.querySelectorAll('.modal-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => openModal(document.getElementById(trigger.dataset.modal)));
+  });
+
+  document.querySelectorAll('.modal .close').forEach((closeBtn) => {
+    closeBtn.addEventListener('click', () => closeModal(closeBtn.closest('.modal')));
+  });
+
+  document.querySelectorAll('a[href="#contact-modal"]').forEach((link) => {
+    link.addEventListener('click', (e) => { e.preventDefault(); openModal(document.getElementById('contact-modal')); });
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target.classList && event.target.classList.contains('modal')) closeModal(event.target);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal').forEach(closeModal);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('fade-in');
     });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.panel, .project-card, .hero-content, .skill-card, .cert-card, .experience-card, .education-card').forEach((el) => observer.observe(el));
 
-    window.addEventListener("click", (event) => {
-        if (event.target === contactModal) {
-            contactModal.classList.add("modal-hide");
-            setTimeout(() => {
-                contactModal.style.display = "none";
-                contactModal.classList.remove("modal-hide");
-            }, 300);
-        }
+  const form = document.getElementById("contact-form");
+  if (form && typeof emailjs !== "undefined") {
+    emailjs.init("d5p16jvVsbmTRVJyk");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
+        .then(() => {
+          alert("Message sent successfully!");
+          this.reset();
+          closeModal(document.getElementById("contact-modal"));
+        })
+        .catch(() => alert("Failed to send message. Please try again later."));
     });
+  }
 
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-            document.querySelectorAll(".modal").forEach(modal => {
-                modal.classList.add("modal-hide");
-                setTimeout(() => {
-                    modal.style.display = "none";
-                    modal.classList.remove("modal-hide");
-                }, 300);
-            });
-        }
-    });
-
-    // Unified Modal Handling for Certification and Experience Cards
-    document.querySelectorAll(".modal-trigger").forEach(card => {
-        card.addEventListener("click", function () {
-            const modalId = this.getAttribute("data-modal");
-            if (modalId) {
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.style.display = "block";
-                }
-            }
-        });
-    });
-
-    document.querySelectorAll(".modal .close").forEach(closeBtn => {
-        closeBtn.addEventListener("click", function () {
-            const modal = this.closest(".modal");
-            modal.classList.add("modal-hide");
-            setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("modal-hide");
-            }, 300);
-        });
-    });
-
-    window.addEventListener("click", (event) => {
-        document.querySelectorAll(".modal").forEach(modal => {
-            if (event.target === modal) {
-                modal.classList.add("modal-hide");
-                setTimeout(() => {
-                    modal.style.display = "none";
-                    modal.classList.remove("modal-hide");
-                }, 300);
-            }
-        });
-    });
-
-    // Scroll-triggered fade-in effect
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            }
-        });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.panel, .project-card, .hero-content').forEach(el => {
-        observer.observe(el);
-    });
-});
-
-// Highlight nav link based on scroll position
-let scrollTimeout;
-document.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav a');
-
-        sections.forEach((section, index) => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 50 && rect.bottom >= 50) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                navLinks[index].classList.add('active');
-            }
-        });
-    }, 100);
-});
-
-// Smooth scroll for nav links
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', (event) => {
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('#')) {
-            event.preventDefault();
-            const targetSection = document.querySelector(href);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                console.warn(`Section with selector '${href}' not found.`);
-            }
-        }
-    });
-});
-
-// Smooth scroll for nav buttons
-document.querySelectorAll('nav button').forEach(button => {
-    button.addEventListener('click', (event) => {
-        const onclick = button.getAttribute('onclick');          // e.g. "location.href='Experience.html'"
-        const targetHtml = onclick.split("'")[1];                // e.g. "Experience.html"
-        const sectionId = targetHtml.replace('.html', '').toLowerCase(); // e.g. "experience"
-        const targetSection = document.getElementById(sectionId);
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            console.warn(`Section with ID '${sectionId}' not found.`);
-        }
-    });
-});
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
-        }
-    });
-});
-
-// Progress bar animation
-window.addEventListener('load', () => {
-    const progressBars = document.querySelectorAll('.progress');
-    const proficiencyLevels = [90, 60, 75, 60, 75]; // Cybersecurity, DevSecOps, Cloud Security, Python, Stakeholder Management
-
-    if (progressBars.length !== proficiencyLevels.length) {
-        console.warn("Mismatch between progress bars and proficiency levels");
-    }
-
-    progressBars.forEach((bar, index) => {
-        bar.style.width = '0%'; // Reset width before animation
-        setTimeout(() => {
-            bar.style.width = proficiencyLevels[index] + '%';
-        }, 100);
-    });
-});
-
-// EmailJS Integration for Contact Form
-document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    if (typeof emailjs !== "undefined") {
-        emailjs.sendForm("service_se211gh", "template_1ptonjd", this, "d5p16jvVsbmTRVJyk")
-            .then(response => {
-                alert("Message sent successfully!");
-                this.reset();
-                const modal = document.getElementById("contact-modal");
-                if (modal) {
-                    modal.classList.add("modal-hide");
-                    setTimeout(() => {
-                        modal.style.display = "none";
-                        modal.classList.remove("modal-hide");
-                    }, 300);
-                }
-            })
-            .catch(error => {
-                console.error("EmailJS Error:", error);
-                alert("Failed to send message. Please try again later.");
-            });
-    } else {
-        console.error("EmailJS is not loaded. Unable to send message.");
-        alert("There was an issue sending your message. Please try again later.");
-    }
+  const bars = Array.from(document.querySelectorAll('.progress'));
+  if (bars.length) {
+    const widths = [90, 60, 75, 60, 75];
+    bars.forEach((bar, i) => { bar.style.width = '0%'; setTimeout(() => bar.style.width = `${widths[i] ?? 60}%`, 120); });
+  }
 });
