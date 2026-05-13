@@ -9,51 +9,68 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav>
-
         <button onclick="location.href='index.html'">Home</button>
         <button onclick="location.href='Experience.html'">Experience</button>
         <button onclick="location.href='Education.html'">Education</button>
         <button onclick="location.href='Certifications.html'">Certifications</button>
         <button onclick="location.href='Skills.html'">Skills</button>
         <button onclick="location.href='Projects.html'">Projects</button>
-
     </nav>
+
     <h1>Experience</h1>
 
-    <!-- Experience Section -->
     <section id="experience">
-        <h2>Experience</h2>
+        <h2>Professional Experience</h2>
         <div class="experience-grid">
+            <div class="experience-card modal-trigger" data-modal="modal-pwc">
+                <img src="Images/profile.jpeg" alt="PwC profile icon" class="company-logo">
+                <h3>SOAR Engineer</h3>
+                <p><strong>PwC | July 2025 - Present</strong></p>
+            </div>
+
             <div class="experience-card modal-trigger" data-modal="modal-playbook">
                 <img src="Images/bt_logo.png" alt="BT Logo" class="company-logo">
                 <h3>Playbook Engineer</h3>
-                <p><strong>BT | July 2022 - Present</strong></p>
+                <p><strong>BT | July 2022 - July 2025</strong></p>
             </div>
 
             <div class="experience-card modal-trigger" data-modal="modal-trainee">
-                <img src="Images/capslock.jpeg" alt="BT Logo" class="company-logo">
+                <img src="Images/capslock.jpeg" alt="CAPSLOCK Bootcamp" class="company-logo">
                 <h3>Cyber Security Trainee</h3>
-                <p><strong>BT | March 2022 - July 2022 (5 months)</strong></p>
+                <p><strong>BT | March 2022 - July 2022</strong></p>
             </div>
         </div>
     </section>
 
-    <!-- Modals -->
+    <div id="modal-pwc" class="modal" role="dialog" aria-labelledby="modal-pwc-title">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-pwc-title">SOAR Engineer - Managed Cyber Defense</h2>
+            <p><strong>PwC | July 2025 - Present</strong></p>
+            <ul>
+                <li>Deliver automation and orchestration solutions across multiple client environments, improving SOC efficiency and scalability.</li>
+                <li>Design and implement multi-tenant SOAR playbooks to standardise incident response across diverse environments.</li>
+                <li>Integrate SIEM, EDR, threat intelligence, and case management tooling into unified automation workflows.</li>
+                <li>Collaborate with SOC, threat intelligence, and detection engineering teams to streamline triage and investigations.</li>
+                <li>Support migration from Palo Alto Cortex XSOAR to D3 Security across multiple clients.</li>
+                <li>Produce documentation and deliver knowledge-transfer sessions on automation-driven incident response.</li>
+            </ul>
+        </div>
+    </div>
+
     <div id="modal-playbook" class="modal" role="dialog" aria-labelledby="modal-playbook-title">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2 id="modal-playbook-title">Playbook Engineer</h2>
-            <p><strong>BT | July 2022 - Present</strong></p>
+            <h2 id="modal-playbook-title">Playbook Engineer - ThreatCo DevSecOps Team</h2>
+            <p><strong>BT | July 2022 - July 2025</strong></p>
             <ul>
-                <li>Develop and maintain security automation capabilities supporting ThreatCo, Protect Operations, and other strategic security initiatives.</li>
-                <li>Design and optimise security playbooks/workflows within SOAR, SIEM, and EDR systems to enhance threat detection and response.</li>
-                <li>Automate security operations processes, reducing manual effort and improving efficiency.</li>
-                <li>Analyse large datasets and logs to identify security risks, drive automation enhancements, and improve response effectiveness.</li>
-                <li>Support security tool integrations, ensuring smooth interoperability between platforms.</li>
-                <li>Maintain structured documentation for playbooks/workflows to ensure knowledge sharing and operational continuity.</li>
-                <li>Collaborate with cross-functional teams to align security automation strategies with business objectives.</li>
+                <li>Developed and optimised playbooks across SOAR, SIEM, and EDR platforms to enhance detection and response.</li>
+                <li>Automated key SOC processes, reducing manual workload and improving operational efficiency.</li>
+                <li>Analysed large-scale security data to identify trends, improve detection logic, and drive automation improvements.</li>
+                <li>Supported security tool integrations to improve interoperability and streamline workflows.</li>
+                <li>Maintained structured playbook documentation for knowledge sharing and operational continuity.</li>
+                <li>Collaborated cross-functionally to align automation delivery with business and security objectives.</li>
             </ul>
         </div>
     </div>
@@ -62,7 +79,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2 id="modal-trainee-title">Cyber Security Trainee</h2>
-            <p><strong>BT | March 2022 - July 2022 (5 months)</strong></p>
+            <p><strong>BT | March 2022 - July 2022</strong></p>
             <ul>
                 <li>Completed CAPSLOCK boot camp with a focus on incident response and security automation.</li>
                 <li>Assisted in the development of foundational security playbooks and automation scripts.</li>
@@ -70,7 +87,6 @@
             </ul>
         </div>
     </div>
-
 
     <script src="scripts.js"></script>
 
