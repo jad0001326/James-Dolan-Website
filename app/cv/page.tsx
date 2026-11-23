@@ -21,7 +21,7 @@ export default function CvPage() {
       <div className="no-print mb-8 flex flex-wrap items-center gap-3">
         <PrintButton />
         {cvPdfAvailable ? (
-          <a href={cvPdfHref} className="inline-flex min-h-11 items-center rounded-full border border-line px-5 font-semibold text-ink no-underline">
+          <a href={cvPdfHref} className="btn">
             Download PDF
           </a>
         ) : (

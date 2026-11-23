@@ -32,13 +32,12 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-line bg-bg/95">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
-        <Link href="/" className="font-serif text-lg leading-none text-ink no-underline">
-          James Dolan
-          <span className="mt-1 block font-mono text-[0.68rem] font-medium tracking-[0.14em] text-brass uppercase">
-            SOAR engineer
-          </span>
+        <Link href="/" className="font-mono text-sm leading-none text-ink no-underline">
+          <span className="text-accent">JD</span>
+          <span className="text-muted">://</span>soar
+          <span className="mt-1 block text-[0.68rem] tracking-[0.14em] text-muted uppercase">jamesdolan.info</span>
         </Link>
         <div className="flex items-center gap-2">
           <nav aria-label="Primary" className="hidden lg:block">
@@ -50,18 +49,19 @@ export function SiteHeader() {
                     <Link
                       href={item.href}
                       aria-current={current ? "page" : undefined}
-                      className={`inline-flex min-h-11 items-center rounded-full px-3 text-sm font-semibold no-underline ${
-                        current ? "bg-bg-elev text-ink" : "text-muted"
+                      className={`inline-flex min-h-11 items-center px-2.5 font-mono text-xs tracking-wide no-underline ${
+                        current ? "text-accent" : "text-muted"
                       }`}
                     >
-                      {item.label}
+                      {current ? "./" : ""}
+                      {item.label.toLowerCase()}
                     </Link>
                   </li>
                 );
               })}
               <li>
-                <Link href="/cv" className="inline-flex min-h-11 items-center rounded-full px-3 text-sm font-semibold text-muted no-underline">
-                  CV
+                <Link href="/cv" className="inline-flex min-h-11 items-center px-2.5 font-mono text-xs tracking-wide text-muted no-underline">
+                  cv
                 </Link>
               </li>
             </ul>
@@ -70,17 +70,17 @@ export function SiteHeader() {
           <button
             ref={buttonRef}
             type="button"
-            className="inline-flex min-h-11 items-center rounded-full border border-line px-3 text-sm font-semibold text-ink lg:hidden"
+            className="btn lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpenPath(open ? null : pathname)}
           >
-            {open ? "Close" : "Menu"}
+            {open ? "close" : "menu"}
           </button>
         </div>
       </div>
       <nav id={menuId} aria-label="Primary" hidden={!open} className="border-t border-line lg:hidden">
-        <ul className="mx-auto flex w-full max-w-6xl flex-col px-5 py-2 sm:px-8">
+        <ul className="mx-auto flex w-full max-w-6xl flex-col px-5 py-2 font-mono sm:px-8">
           {nav.map((item, index) => {
             const current = isCurrent(pathname, item.href);
             return (
@@ -89,16 +89,16 @@ export function SiteHeader() {
                   ref={index === 0 ? firstLinkRef : undefined}
                   href={item.href}
                   aria-current={current ? "page" : undefined}
-                  className="inline-flex min-h-11 items-center text-base font-semibold text-ink no-underline"
+                  className={`inline-flex min-h-11 items-center text-sm no-underline ${current ? "text-accent" : "text-ink"}`}
                 >
-                  {item.label}
+                  {current ? ">" : " "} {item.label.toLowerCase()}
                 </Link>
               </li>
             );
           })}
           <li>
-            <Link href="/cv" className="inline-flex min-h-11 items-center text-base font-semibold text-ink no-underline">
-              CV
+            <Link href="/cv" className="inline-flex min-h-11 items-center text-sm text-ink no-underline">
+              {"  "}cv
             </Link>
           </li>
         </ul>

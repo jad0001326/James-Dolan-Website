@@ -18,27 +18,28 @@ export default function ProjectsPage() {
     <Container className="py-12 sm:py-16">
       <PageHeader
         kicker="Projects"
-        title="Case studies, anonymised."
+        title="playbooks/"
         lede="Each study is problem, approach, and outcome. They are drawn from published role descriptions. Client names are not included. Where a measured result is missing, the page says Placeholder."
       />
 
-      <ul className="mt-10 space-y-4">
-        {studies.map((study) => (
+      <ul className="mt-10 space-y-3">
+        {studies.map((study, index) => (
           <li key={study.slug}>
-            <article className="rounded-3xl border border-line bg-bg-elev p-6">
-              <p className="font-mono text-xs tracking-[0.14em] text-brass uppercase">
-                {study.context} · {study.period}
-              </p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-ink">
+            <article className="scan-card panel p-5">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="font-mono text-xs text-muted">PB-{String(index + 1).padStart(2, "0")}</span>
+                <span className={study.placeholder ? "tag tag-warn" : "tag tag-ok"}>{study.placeholder ? "placeholder" : "filed"}</span>
+                <span className="tag tag-info">{study.platform}</span>
+              </div>
+              <h2 className="mt-3 font-mono text-2xl leading-tight text-ink">
                 <Link href={`/projects/${study.slug}`} className="text-ink no-underline">
                   {study.title}
                 </Link>
               </h2>
               <p className="mt-3 max-w-3xl leading-relaxed text-muted">{study.summary}</p>
-              <p className="mt-3 text-sm text-muted">{study.platform}</p>
-              {study.placeholder ? (
-                <p className="mt-3 font-mono text-xs tracking-[0.12em] text-brass uppercase">Contains a placeholder outcome</p>
-              ) : null}
+              <p className="mt-3 font-mono text-xs text-muted">
+                {study.context} · {study.period}
+              </p>
             </article>
           </li>
         ))}

@@ -19,7 +19,7 @@ export default function AboutPage() {
     <Container className="py-12 sm:py-16">
       <PageHeader
         kicker="About"
-        title="From the shop floor to security automation."
+        title="about.txt"
         lede={`${site.description} Based in the ${site.location}.`}
       />
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
           alt="James Dolan, smiling, photographed indoors near a window."
           width={960}
           height={960}
-          className="aspect-square w-full max-w-64 rounded-full object-cover"
+          className="aspect-square w-full max-w-64 border border-line object-cover"
           sizes="256px"
         />
         <div className="max-w-3xl space-y-4 text-lg leading-relaxed text-muted">

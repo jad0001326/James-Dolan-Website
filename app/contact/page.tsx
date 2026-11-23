@@ -18,7 +18,7 @@ export default function ContactPage() {
         <div>
           <PageHeader
             kicker="Contact"
-            title="Send a note."
+            title="contact.form"
             lede="For SOAR engineering, security automation, or a straightforward conversation. James is based in the Falkirk area, Scotland."
           />
           <p className="mt-6 text-muted">

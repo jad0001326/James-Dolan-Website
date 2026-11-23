@@ -5,7 +5,7 @@ export function PrintButton() {
     <button
       type="button"
       onClick={() => window.print()}
-      className="no-print inline-flex min-h-11 items-center rounded-full bg-accent px-5 font-semibold text-accent-ink"
+      className="btn btn-primary no-print"
     >
       Print or save as PDF
     </button>

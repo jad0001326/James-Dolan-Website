@@ -14,8 +14,7 @@ type ApiResult = {
   fieldErrors?: FieldErrors;
 };
 
-const fieldClass =
-  "mt-2 w-full rounded-2xl border border-line bg-bg px-3 py-3 text-base text-ink";
+const fieldClass = "mt-2 w-full border border-line bg-bg px-3 py-3 font-mono text-base text-ink";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -79,14 +78,15 @@ export function ContactForm() {
 
   if (status === "sent" || status === "mock") {
     return (
-      <div role="status" className="rounded-3xl border border-line bg-bg-elev p-6">
-        <h2 className="font-serif text-3xl text-ink">{status === "mock" ? "Validated in demo mode" : "Message sent"}</h2>
+      <div role="status" className="panel p-6">
+        <p className={status === "mock" ? "tag tag-warn" : "tag tag-ok"}>{status === "mock" ? "dry-run" : "queued"}</p>
+        <h2 className="mt-3 font-mono text-2xl text-ink">{status === "mock" ? "Validated in demo mode" : "Message sent"}</h2>
         <p className="mt-3 text-muted">
           {status === "mock"
             ? "The form passed the server checks, but email delivery is not configured in this environment, so nothing was sent."
             : "James has the message and can reply by email."}
         </p>
-        <button type="button" className="mt-6 inline-flex min-h-11 items-center rounded-full border border-line px-4 font-semibold text-ink" onClick={() => setStatus("idle")}>
+        <button type="button" className="btn mt-6" onClick={() => setStatus("idle")}>
           Send another message
         </button>
       </div>
@@ -94,9 +94,9 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate={false} className="rounded-3xl border border-line bg-bg-elev p-6" aria-describedby={error ? summaryId : undefined}>
+    <form onSubmit={onSubmit} noValidate={false} className="panel p-6" aria-describedby={error ? summaryId : undefined}>
       {error ? (
-        <div id={summaryId} role="alert" className="mb-5 rounded-2xl border border-danger px-4 py-3 text-sm text-danger">
+        <div id={summaryId} role="alert" className="mb-5 border border-danger px-4 py-3 font-mono text-sm text-danger">
           {error}
         </div>
       ) : null}
@@ -109,8 +109,8 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor={`${formId}-name`} className="font-semibold text-ink">
-          Name
+        <label htmlFor={`${formId}-name`} className="font-mono text-xs tracking-wide text-muted uppercase">
+          name
         </label>
         <input
           id={`${formId}-name`}
@@ -132,8 +132,8 @@ export function ContactForm() {
       </div>
 
       <div className="mt-4">
-        <label htmlFor={`${formId}-email`} className="font-semibold text-ink">
-          Email
+        <label htmlFor={`${formId}-email`} className="font-mono text-xs tracking-wide text-muted uppercase">
+          email
         </label>
         <input
           id={`${formId}-email`}
@@ -154,8 +154,8 @@ export function ContactForm() {
       </div>
 
       <div className="mt-4">
-        <label htmlFor={`${formId}-message`} className="font-semibold text-ink">
-          Message
+        <label htmlFor={`${formId}-message`} className="font-mono text-xs tracking-wide text-muted uppercase">
+          message
         </label>
         <textarea
           id={`${formId}-message`}
@@ -182,7 +182,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-5 inline-flex min-h-11 items-center rounded-full bg-accent px-5 font-semibold text-accent-ink disabled:opacity-60"
+        className="btn btn-primary mt-5 disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send message"}
       </button>

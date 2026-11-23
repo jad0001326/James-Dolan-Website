@@ -17,41 +17,43 @@ export default function ExperiencePage() {
     <Container className="py-12 sm:py-16">
       <PageHeader
         kicker="Experience"
-        title="The work, in the open."
+        title="experience.log"
         lede="SOAR engineering at PwC, playbook engineering at BT ThreatCo, and the CAPSLOCK route in from retail."
       />
 
-      <ol className="mt-12 space-y-8 border-l border-line pl-6 sm:pl-8">
+      <ol className="mt-10 border-t border-line">
         {roles.map((role) => (
-          <li key={role.id} className="relative">
-            <span className="absolute top-7 -left-[1.85rem] size-3 rounded-full border-2 border-bg bg-accent sm:-left-[2.35rem]" aria-hidden="true" />
-            <article className="rounded-3xl border border-line bg-bg-elev p-5 sm:p-7">
+          <li key={role.id} className="grid gap-4 border-b border-line py-6 md:grid-cols-[12rem_minmax(0,1fr)]">
+            <div className="font-mono text-xs leading-relaxed">
+              <p className="text-muted">{role.dates}</p>
+              <p className="mt-2">
+                <span className={role.current ? "tag tag-live" : "tag"}>{role.current ? "open" : "closed"}</span>
+              </p>
+            </div>
+            <article>
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  {role.current ? (
-                    <p className="font-mono text-xs font-medium tracking-[0.14em] text-brass uppercase">Current</p>
-                  ) : null}
-                  <h2 className="mt-1 font-serif text-3xl leading-tight text-ink">{role.title}</h2>
+                  <h2 className="font-mono text-2xl leading-tight text-ink">{role.title}</h2>
                   <p className="mt-2 text-muted">
                     {role.organisationUrl ? (
                       <ExternalLink href={role.organisationUrl}>{role.organisation}</ExternalLink>
                     ) : (
                       role.organisation
                     )}
-                    <span> · {role.dates}</span>
                   </p>
                 </div>
-                {role.logo ? (
-                  <LogoMark src={role.logo.src} width={role.logo.width} height={role.logo.height} />
-                ) : null}
+                {role.logo ? <LogoMark src={role.logo.src} width={role.logo.width} height={role.logo.height} /> : null}
               </div>
               <p className="mt-4 max-w-3xl leading-relaxed text-muted">{role.summary}</p>
-              {role.note ? <p className="mt-3 font-semibold text-ink">{role.note}</p> : null}
+              {role.note ? <p className="mt-3 font-medium text-accent">{role.note}</p> : null}
               {role.highlights.length > 0 ? (
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-muted">
+                <ul className="mt-4 space-y-2 font-mono text-sm text-muted">
                   {role.highlights.map((highlight) => (
-                    <li key={highlight} className="leading-relaxed marker:text-brass">
-                      {highlight}
+                    <li key={highlight} className="grid grid-cols-[1.25rem_1fr] gap-2">
+                      <span className="text-accent" aria-hidden="true">
+                        &gt;
+                      </span>
+                      <span>{highlight}</span>
                     </li>
                   ))}
                 </ul>
