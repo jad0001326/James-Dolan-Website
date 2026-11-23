@@ -34,3 +34,13 @@ tmp/
 
 # Node modules
 node_modules/
+
+# Next.js
+.next/
+out/
+.vercel
+*.tsbuildinfo
+
+# Local env
+.env
+.env*.local

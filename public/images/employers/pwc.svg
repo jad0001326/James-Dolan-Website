@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" role="img" aria-labelledby="title desc">
+  <title id="title">PwC logo</title>
+  <desc id="desc">Stylized PwC text with orange bars.</desc>
+  <rect width="360" height="200" fill="white"/>
+  <polygon points="190,40 255,40 240,65 175,65" fill="#ff5f00"/>
+  <polygon points="145,62 210,62 195,87 130,87" fill="#ff5f00"/>
+  <text x="95" y="140" font-size="92" font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="#000">pwc</text>
+</svg>

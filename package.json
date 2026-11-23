@@ -1,0 +1,38 @@
+{
+  "name": "james-dolan-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal site for James Dolan, SOAR engineer.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "gray-matter": "^4.0.3",
+    "next": "^16.4.6",
+    "next-mdx-remote": "^6.0.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "resend": "^6.39.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.6",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  }
+}
