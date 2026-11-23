@@ -11,10 +11,10 @@ const steps = [
  */
 export function PlaybookDemo() {
   return (
-    <section aria-labelledby="playbook-demo-title" className="mt-14 rounded-3xl border border-line bg-bg-elev p-6 sm:p-8">
-      <p className="font-mono text-xs font-medium tracking-[0.16em] text-brass uppercase">Phase 2</p>
-      <h2 id="playbook-demo-title" className="mt-3 font-serif text-3xl text-ink">
-        Playbook demo
+    <section aria-labelledby="playbook-demo-title" className="panel mt-14 p-6 sm:p-8">
+      <p className="tag tag-info">phase 2</p>
+      <h2 id="playbook-demo-title" className="mt-3 font-mono text-2xl text-ink">
+        playbook-demo
       </h2>
       <p className="mt-3 max-w-2xl text-muted">
         An in-browser walkthrough of a SOAR playbook will live here. The seam is{" "}
@@ -22,9 +22,9 @@ export function PlaybookDemo() {
       </p>
       <ol className="mt-6 grid gap-4 sm:grid-cols-4">
         {steps.map((step, index) => (
-          <li key={step.name} className="rounded-2xl border border-line bg-bg p-4">
-            <p className="font-mono text-xs text-brass">0{index + 1}</p>
-            <h3 className="mt-2 font-serif text-xl text-ink">{step.name}</h3>
+          <li key={step.name} className="border border-line bg-bg p-4">
+            <p className="font-mono text-xs text-accent">0{index + 1}</p>
+            <h3 className="mt-2 font-mono text-lg text-ink">{step.name}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">{step.detail}</p>
           </li>
         ))}

@@ -21,23 +21,9 @@ export function ThemeToggle() {
   useEffect(() => {
     const button = ref.current;
     if (!button) return;
-    const sync = (theme: "light" | "dark") => {
-      button.setAttribute("aria-pressed", String(theme === "dark"));
-      button.setAttribute("aria-label", describe(theme));
-    };
-    sync(currentTheme());
-
-    const stored = localStorage.getItem("theme");
-    if (stored === "light" || stored === "dark") return;
-
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => {
-      const theme = media.matches ? "dark" : "light";
-      applyTheme(theme);
-      sync(theme);
-    };
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
+    const theme = currentTheme();
+    button.setAttribute("aria-pressed", String(theme === "dark"));
+    button.setAttribute("aria-label", describe(theme));
   }, []);
 
   function toggle() {
@@ -53,9 +39,9 @@ export function ThemeToggle() {
       ref={ref}
       type="button"
       onClick={toggle}
-      aria-pressed="false"
-      aria-label="Switch colour theme"
-      className="inline-flex min-h-11 items-center rounded-full border border-line px-3 text-sm font-semibold text-ink"
+      aria-pressed="true"
+      aria-label="Switch to light theme"
+      className="btn font-mono"
     >
       <span className="when-light">Dark</span>
       <span className="when-dark">Light</span>

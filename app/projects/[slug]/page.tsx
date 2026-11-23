@@ -41,26 +41,29 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
 
   return (
     <Container className="py-12 sm:py-16">
-      <p className="font-mono text-xs font-medium tracking-[0.16em] text-brass uppercase">
-        <Link href="/projects" className="text-brass no-underline">
-          Projects
+      <p className="font-mono text-sm text-cyan">
+        <Link href="/projects" className="text-cyan no-underline">
+          ../playbooks
         </Link>
-        {" · "}
-        {study.context}
+        <span className="text-muted">/{study.slug}</span>
       </p>
-      <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight text-ink sm:text-5xl">{study.title}</h1>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <span className={study.placeholder ? "tag tag-warn" : "tag tag-ok"}>{study.placeholder ? "placeholder" : "filed"}</span>
+        <span className="tag tag-info">{study.platform}</span>
+      </div>
+      <h1 className="mt-4 max-w-3xl font-mono text-3xl leading-tight text-ink sm:text-4xl">{study.title}</h1>
       <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{study.summary}</p>
-      <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+      <dl className="mt-6 grid max-w-xl grid-cols-2 gap-4 border border-line p-4 font-mono text-sm">
         <div>
-          <dt className="font-mono text-xs tracking-[0.12em] text-brass uppercase">Platform</dt>
-          <dd className="text-ink">{study.platform}</dd>
+          <dt className="text-xs text-muted">context</dt>
+          <dd className="text-ink">{study.context}</dd>
         </div>
         <div>
-          <dt className="font-mono text-xs tracking-[0.12em] text-brass uppercase">When</dt>
+          <dt className="text-xs text-muted">window</dt>
           <dd className="text-ink">{study.period}</dd>
         </div>
       </dl>
-      <div className="mt-4 max-w-3xl">{content}</div>
+      <div className="mdx mt-2 max-w-3xl">{content}</div>
     </Container>
   );
 }

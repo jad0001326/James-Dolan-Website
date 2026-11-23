@@ -11,8 +11,8 @@ function MarkdownLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
 }
 
 export const mdxComponents = {
-  h2: (props) => <h2 className="mt-10 font-serif text-3xl leading-tight text-ink" {...props} />,
-  h3: (props) => <h3 className="mt-8 font-serif text-2xl text-ink" {...props} />,
+  h2: (props) => <h2 className="mt-10 font-mono text-2xl leading-tight text-ink" {...props} />,
+  h3: (props) => <h3 className="mt-8 font-mono text-xl text-ink" {...props} />,
   p: (props) => <p className="mt-4 text-base leading-relaxed text-muted" {...props} />,
   ul: (props) => <ul className="mt-4 list-disc space-y-2 pl-5 text-muted" {...props} />,
   ol: (props) => <ol className="mt-4 list-decimal space-y-2 pl-5 text-muted" {...props} />,

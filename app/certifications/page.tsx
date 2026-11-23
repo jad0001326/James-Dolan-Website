@@ -18,13 +18,16 @@ function CertList({ status }: { status: "held" | "in-progress" }) {
     <ul className="mt-6 grid gap-4 md:grid-cols-2">
       {items.map((item) => (
         <li key={item.id}>
-          <article className="flex h-full gap-4 rounded-3xl border border-line bg-bg-elev p-5">
+          <article className="panel flex h-full gap-4 p-4">
             <LogoMark src={item.logo.src} width={item.logo.width} height={item.logo.height} />
             <div>
-              <p className="font-mono text-xs tracking-[0.12em] text-brass uppercase">
-                {item.status === "held" ? item.issued : "In progress"}
+              <p>
+                <span className={item.status === "held" ? "tag tag-ok" : "tag tag-warn"}>
+                  {item.status === "held" ? item.issued : "in progress"}
+                </span>
               </p>
-              <h3 className="mt-1 font-serif text-2xl leading-tight text-ink">{item.name}</h3>
+              <h3 className="mt-2 font-mono text-lg leading-snug text-ink">{item.shortName}</h3>
+              <p className="mt-1 text-sm text-ink">{item.name}</p>
               <p className="mt-1 text-sm text-muted">{item.issuer}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted">{item.summary}</p>
               <p className="mt-3">
@@ -43,18 +46,18 @@ export default function CertificationsPage() {
     <Container className="py-12 sm:py-16">
       <PageHeader
         kicker="Certifications"
-        title="Credentials, with the dates."
+        title="credentials/"
         lede="Held certifications are listed with the month they were awarded. Anything still in progress is labelled as such."
       />
       <section aria-labelledby="held-certs" className="mt-12">
-        <h2 id="held-certs" className="font-serif text-3xl text-ink">
-          Held
+        <h2 id="held-certs" className="font-mono text-sm text-cyan">
+          <span className="text-muted">$ </span>ls ./held
         </h2>
         <CertList status="held" />
       </section>
       <section aria-labelledby="progress-certs" className="mt-12">
-        <h2 id="progress-certs" className="font-serif text-3xl text-ink">
-          In progress
+        <h2 id="progress-certs" className="font-mono text-sm text-cyan">
+          <span className="text-muted">$ </span>ls ./in-progress
         </h2>
         <CertList status="in-progress" />
       </section>

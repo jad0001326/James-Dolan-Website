@@ -24,7 +24,7 @@ export default function WritingPage() {
     <Container className="py-12 sm:py-16">
       <PageHeader
         kicker="Writing"
-        title="Notes, when they are ready."
+        title="writing/"
         lede="Longer writing on playbook design, integrations, and incident-response automation will be published here. The pipeline is already in place: add an MDX file, and the page, the post route, the sitemap, and the RSS feed pick it up."
       />
       <p className="mt-6 text-sm text-muted">
